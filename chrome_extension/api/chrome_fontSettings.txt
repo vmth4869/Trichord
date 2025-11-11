@@ -1,0 +1,77 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+chrome.fontSettings.onFontChanged.addListener(<_ListenerFunc_p1>)
+chrome.fontSettings.onDefaultFontSizeChanged.addListener(<_ListenerFunc_p1>)
+chrome.fontSettings.onDefaultFixedFontSizeChanged.addListener(<_ListenerFunc_p1>)
+chrome.fontSettings.onMinimumFontSizeChanged.addListener(<_ListenerFunc_p1>)
+chrome.fontSettings.onFontChanged.dispatch()
+chrome.fontSettings.onDefaultFontSizeChanged.dispatch()
+chrome.fontSettings.onDefaultFixedFontSizeChanged.dispatch()
+chrome.fontSettings.onMinimumFontSizeChanged.dispatch()
+#chrome.fontSettings.onFontChanged.removeListener(<_ListenerFunc_p1>)
+#chrome.fontSettings.onDefaultFontSizeChanged.removeListener(<_ListenerFunc_p1>)
+#chrome.fontSettings.onDefaultFixedFontSizeChanged.removeListener(<_ListenerFunc_p1>)
+#chrome.fontSettings.onMinimumFontSizeChanged.removeListener(<_ListenerFunc_p1>)
+
+chrome.fontSettings.clearFont(<_font_details>, function(){<cb>})
+chrome.fontSettings.getFont(<_font_details>, function(<_callback_param_temp>){<cb>})
+chrome.fontSettings.setFont(<_font_details>, function(){<cb>})
+chrome.fontSettings.getFontList(function(<_callback_param_temp>){<cb>})
+chrome.fontSettings.clearDefaultFontSize(<_font_details>, function(){<cb>})
+chrome.fontSettings.getDefaultFontSize(<_font_details>, function(<_callback_param_temp>){<cb>})
+chrome.fontSettings.setDefaultFontSize(<_font_details>, function(){<cb>})
+chrome.fontSettings.clearDefaultFixedFontSize(<_font_details>, function(){<cb>})
+chrome.fontSettings.getDefaultFixedFontSize(<_font_details>, function(<_callback_param_temp>){<cb>})
+chrome.fontSettings.setDefaultFixedFontSize(<_font_details>, function(){<cb>})
+chrome.fontSettings.clearMinimumFontSize(<_font_details>, function(){<cb>})
+chrome.fontSettings.getMinimumFontSize(<_font_details>, function(<_callback_param_temp>){<cb>})
+chrome.fontSettings.setMinimumFontSize(<_font_details>, function(){<cb>})
+
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+
+
+!end lines
+
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.fontSettings.clearFont(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.getFont(<_font_details>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.fontSettings.setFont(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.getFontList(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.fontSettings.clearDefaultFontSize(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.getDefaultFontSize(<_font_details>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.fontSettings.setDefaultFontSize(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.clearDefaultFixedFontSize(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.getDefaultFixedFontSize(<_font_details>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.fontSettings.setDefaultFixedFontSize(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.clearMinimumFontSize(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.getMinimumFontSize(<_font_details>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.fontSettings.setMinimumFontSize(<_font_details>, function(){<cb>})
+<callback_api> = chrome.fontSettings.onFontChanged.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onDefaultFontSizeChanged.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onDefaultFixedFontSizeChanged.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onMinimumFontSizeChanged.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onFontChanged.dispatch()
+<callback_api> = chrome.fontSettings.onDefaultFontSizeChanged.dispatch()
+<callback_api> = chrome.fontSettings.onDefaultFixedFontSizeChanged.dispatch()
+<callback_api> = chrome.fontSettings.onMinimumFontSizeChanged.dispatch()
+<callback_api> = chrome.fontSettings.onFontChanged.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onDefaultFontSizeChanged.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onDefaultFixedFontSizeChanged.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.fontSettings.onMinimumFontSizeChanged.removeListener(<_ListenerFunc_p1>)
+
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})

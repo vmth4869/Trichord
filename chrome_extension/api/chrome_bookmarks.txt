@@ -1,0 +1,99 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.bookmarks.onCreated.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onChildrenReordered.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onCreated.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onImportBegan.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onImportEnded.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onMoved.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onRemoved.addListener(<_ListenerFunc_p0>)
+chrome.bookmarks.onCreated.dispatch()
+chrome.bookmarks.onChildrenReordered.dispatch()
+chrome.bookmarks.onCreated.dispatch()
+chrome.bookmarks.onImportBegan.dispatch()
+chrome.bookmarks.onImportEnded.dispatch()
+chrome.bookmarks.onMoved.dispatch()
+chrome.bookmarks.onRemoved.dispatch()
+
+chrome.bookmarks.get(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.get(<_IDs_list>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.getChildren(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.getRecent(<_int>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.getTree(function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.getSubTree(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.search(<_url>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.create({parentId:<_ID>, index:<_index>, title:<_name>, url:<_url>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.create({parentId:<_ID>, index:<_index>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.create({index:<_index>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.create({parentId:<_ID>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.move(<_ID>, {parentId:<_ID>, index:<_index>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.move(<_ID>, {parentId:<_ID>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.move(<_ID>, {index:<_index>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.update(<_ID>, {title:<_name>, url:<_url>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.update(<_ID>, {title:<_name>, url:<_url>}, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.remove(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.remove(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.removeTree(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.bookmarks.removeTree(<_ID>, function(<_callback_param_temp>){<cb>})
+
+chrome.contextMenus.create({checked:<_bool>, contexts:<_contextTypes_list>, documentUrlPatterns:<_urlPattern>, enabled:<_bool>, id:<contextMenusid>, parentId:<contextMenusid>, targetUrlPatterns:<_urlPattern>, title:<_name>, type:<_ItemType>}, function(){<cb>})
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.bookmarks.onCreated.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onChildrenReordered.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onCreated.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onImportBegan.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onImportEnded.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onMoved.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onRemoved.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.bookmarks.onCreated.dispatch()
+<callback_api> = chrome.bookmarks.onChildrenReordered.dispatch()
+<callback_api> = chrome.bookmarks.onCreated.dispatch()
+<callback_api> = chrome.bookmarks.onImportBegan.dispatch()
+<callback_api> = chrome.bookmarks.onImportEnded.dispatch()
+<callback_api> = chrome.bookmarks.onMoved.dispatch()
+<callback_api> = chrome.bookmarks.onRemoved.dispatch()
+<callback_api> = chrome.bookmarks.get(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.get(<_IDs_list>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.getChildren(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.getRecent(<_int>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.getTree(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.getSubTree(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.search(<_url>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.create({parentId:<_ID>, index:<_index>, title:<_name>, url:<_url>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.create({parentId:<_ID>, index:<_index>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.create({index:<_index>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.create({parentId:<_ID>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.move(<_ID>, {parentId:<_ID>, index:<_index>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.move(<_ID>, {parentId:<_ID>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.move(<_ID>, {index:<_index>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.update(<_ID>, {title:<_name>, url:<_url>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.update(<_ID>, {title:<_name>, url:<_url>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.remove(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.remove(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.removeTree(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.bookmarks.removeTree(<_ID>, function(<_callback_param_temp>){<cb>})
+
+<callback_api> = chrome.contextMenus.create({checked:<_bool>, contexts:<_contextTypes_list>, documentUrlPatterns:<_urlPattern>, enabled:<_bool>, id:<contextMenusid>, parentId:<contextMenusid>, targetUrlPatterns:<_urlPattern>, title:<_name>, type:<_ItemType>}, function(){<cb>})
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+

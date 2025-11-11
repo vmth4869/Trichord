@@ -1,0 +1,353 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.tabs.onCreated.addListener(<_ListenerFunc_p1>)
+chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onMoved.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onActiveChanged.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onActivated.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onHighlightChanged.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onHighlighted.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onDetached.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onAttached.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onRemoved.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onReplaced.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onZoomChange.addListener(<_ListenerFunc_p1>)
+chrome.tabs.onSelectionChanged.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onCreated.dispatch()
+chrome.tabs.onUpdated.dispatch()
+chrome.tabs.onMoved.dispatch()
+chrome.tabs.onActiveChanged.dispatch()
+chrome.tabs.onActivated.dispatch()
+chrome.tabs.onHighlightChanged.dispatch()
+chrome.tabs.onHighlighted.dispatch()
+chrome.tabs.onDetached.dispatch()
+chrome.tabs.onAttached.dispatch()
+chrome.tabs.onRemoved.dispatch()
+chrome.tabs.onReplaced.dispatch()
+chrome.tabs.onZoomChange.dispatch()
+chrome.tabs.onSelectionChanged.dispatch()
+
+<new _tab> = (await chrome_tabs_get(<_tabId>))
+<new _tab> = (await chrome_tabs_getCurrent(<_tabId>))
+<new _tab> = (await chrome_tabs_duplicate(<_tabId>))
+<new _tab> = (await chrome_tabs_getSelected(<_windowId>))
+<new _tab> = (await chrome_tabs_getSelected())
+<new _tab> = (await chrome_tabs_getAllInWindow(<_windowId>))
+<new _tab> = (await chrome_tabs_getAllInWindow())
+<new _tab> = (await chrome_tabs_create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}))
+<new _tab> = (await chrome_tabs_create({windowId:<_windowId>, index:<_index>, openerTabId:<_tabId>}))
+<new _tab> = (await chrome_tabs_create({index:<_index>, openerTabId:<_tabId>}))
+<new _tab> = (await chrome_tabs_update(<_tabId>, {url:<_url>, active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>, openerTabId:<_tabId>, autoDiscardable:<_bool>}))
+<new _tab> = (await chrome_tabs_update(<_tabId>, {active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>}))
+<new _tab> = (await chrome_tabs_update(<_tabId>, {openerTabId:<_tabId>, autoDiscardable:<_bool>}))
+<new _tab> = (await chrome_tabs_update(<_tabId>, {openerTabId:<_tabId>}))
+<new _tab> = (await chrome_tabs_update(<_tabId>, {autoDiscardable:<_bool>}))
+<new _tab> = (await chrome_tabs_update(<_tabId>, {}))
+<new _tab> = (await chrome_tabs_move(<_tabId>, {windowId:<_windowId>, index:<_index>}))
+<new _tab> = (await chrome_tabs_move(<_tabId>, {index:<_index>}))
+<new _tabId_list> = (await chrome_tabs_move(<_tabId_list>, {windowId:<_windowId>, index:<_index>}))
+<new _tabId_list> = (await chrome_tabs_move(<_tabId_list>, {index:<_index>}))
+<new _tab> = (await chrome_tabs_discard(<_tabId>))
+<new _tab> = (await chrome_tabs_discard(<_tabId>))
+<new _tab> = (await chrome_tabs_discard(<_tabId>))
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.getCurrent(function(<_tab_p>){<cb>})
+chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.connect(<_tabId>,{name:<_name>, frameId:<_frameId>})
+chrome.tabs.connect(<_tabId>,{name:<_name>})
+chrome.tabs.connect(<_tabId>,{frameId:<_frameId>})
+chrome.tabs.connect(<_tabId>,{})
+chrome.tabs.sendRequest(<_tabId>, <_any>, function(<_tab_p>){<cb>})
+chrome.tabs.sendRequest(<_tabId>, {}, function(<_tab_p>){<cb>})
+chrome.tabs.sendMessage(<_tabId>, <_json>, {frameId:<_frameId>}, function(<_tab_p>){<cb>})
+chrome.tabs.sendMessage(<_tabId>, <_json>, {}, function(<_tab_p>){<cb>})
+chrome.tabs.sendMessage(<_tabId>, {}, {frameId:<_frameId>}, function(<_tab_p>){<cb>})
+chrome.tabs.sendMessage(<_tabId>, {}, {frameId:<_frameId>})
+chrome.tabs.sendMessage(<_tabId>, {}, {}, function(<_tab_p>){<cb>})
+chrome.tabs.getSelected(<_windowId>, function(<_tab_p>){<cb>})
+chrome.tabs.getSelected(function(<_tab_p>){<cb>})
+chrome.tabs.getAllInWindow(<_windowId>, function(<_tab_p>){<cb>})
+chrome.tabs.getAllInWindow(function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, openerTabId:<_tabId>})
+chrome.tabs.create({index:<_index>, openerTabId:<_tabId>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.create({index:<_index>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.query({index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.query({index:<_index>})
+chrome.tabs.query({windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.highlight({windowId:<_windowId>, tabs:<_tabId>}, function(<_window_p>){<cb>})
+chrome.tabs.highlight({tabs:<_tabId>}, function(<_window_p>){<cb>})
+chrome.tabs.update(<_tabId>, {url:<_url>, active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>, openerTabId:<_tabId>, autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+chrome.tabs.update(<_tabId>, {active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>}, function(<_tab_p>){<cb>})
+chrome.tabs.update(<_tabId>, {openerTabId:<_tabId>, autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+chrome.tabs.update(<_tabId>, {openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.update(<_tabId>, {autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+chrome.tabs.update(<_tabId>, {}, function(<_tab_p>){<cb>})
+chrome.tabs.move(<_tabId>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.move(<_tabId>, {index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.move(<_tabId_list>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.move(<_tabId_list>, {index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.tabs.reload({bypassCache:<_bool>}, function(){<cb>})
+chrome.tabs.reload(<_tabId>, function(){<cb>})
+chrome.tabs.remove(<_tabId>, function(){<cb>})
+chrome.tabs.remove(<_tabId>, function(){<cb>})
+chrome.tabs.remove(<_tabId_list>, function(){<cb>})
+chrome.tabs.detectLanguage(<_tabId>, function(<_callback_param_temp>){<cb>})
+chrome.tabs.captureVisibleTab(<_windowId>, {quality:<_int>}, function(<_callback_param_temp>){<cb>})
+chrome.tabs.executeScript(<_tabId>, {function:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(<_tab_p>){<cb>})
+chrome.tabs.executeScript(<_tabId>, {function:<_code>, frameId:<_frameId>}, function(<_tab_p>){<cb>})
+chrome.tabs.executeScript(<_tabId>, {}, function(<_tab_p>){<cb>})
+chrome.tabs.executeScript({function:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(<_tab_p>){<cb>})
+chrome.tabs.insertCSS(<_tabId>, {code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(){<cb>})
+chrome.tabs.insertCSS({code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(){<cb>})
+chrome.tabs.insertCSS(<_tabId>, {code:<_code>, frameId:<_frameId>}, function(){<cb>})
+chrome.tabs.insertCSS(<_tabId>, {}, function(){<cb>})
+chrome.tabs.setZoom(<_tabId>, <_int>, function(){<cb>})
+chrome.tabs.getZoom(<_tabId>, function(<_callback_param_temp>){<cb>})
+chrome.tabs.setZoomSettings(<_tabId>, {mode:<_ZoomSettingsMode>, scope:<_ZoomSettingsScope>, defaultZoomFactor:<_int>}, function(){<cb>})
+chrome.tabs.setZoomSettings({mode:<_ZoomSettingsMode>, scope:<_ZoomSettingsScope>, defaultZoomFactor:<_int>}, function(){<cb>})
+chrome.tabs.setZoomSettings(<_tabId>, {}, function(){<cb>})
+chrome.tabs.getZoomSettings(<_tabId>, function(){<cb>})
+chrome.tabs.discard(<_tabId>)
+chrome.tabs.discard(<_tabId>)
+chrome.tabs.discard(<_tabId>)
+chrome.tabs.discard(<_tabId>), function(<_tab_p>){<cb>}
+chrome.tabs.discard(<_tabId>), function(<_tab_p>){<cb>}
+chrome.tabs.discard(<_tabId>), function(<_tab_p>){<cb>}
+chrome.tabs.goForward(<_tabId>, function(){<cb>})
+chrome.tabs.goForward(function(){<cb>})
+chrome.tabs.goBack(<_tabId>, function(){<cb>})
+chrome.tabs.goBack(function(){<cb>})
+#chrome.tabs.ungroup(<_tabId>)
+#chrome.tabs.ungroup(<_tabId_list>)
+#chrome.tabs.ungroup(<_tabId>, function(<_tabgroupId>){<cb>})
+#chrome.tabs.ungroup(<_tabId_list>, function(<_tabgroupId>){<cb>})
+chrome.tabs.removeCSS({})
+chrome.tabs.removeCSS(<_tabId>,{})
+chrome.tabs.removeCSS(<_tabId>, {}, function(){<cb>})
+chrome.tabs.removeCSS({}, function(){<cb>})
+chrome.tabs.removeCSS(<_tabId>, {}, function(){<cb>})
+chrome.tabs.removeCSS(<_tabId>, {code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>}, function(){<cb>})
+chrome.tabs.removeCSS({code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>}, function(){<cb>})
+chrome.tabs.removeCSS(<_tabId>, {code:<_code>, frameId:<_frameId>}, function(){<cb>})
+
+<_tab>.active = <_bool>
+<_tab>.audible = <_bool>
+<_tab>.autoDiscardable = <_bool>
+<_tab>.discarded = <_bool>
+<_tab>.height = <_int>
+<_tab>.width = <_int>
+<_tab>.highlighted = <_bool>
+<_tab>.id = <_index>
+<_tab>.id = <_tabId>
+#<_tab>.groupId = -1
+#<_tab>.groupId = <_tabgroupId>
+<_tab>.incognito = <_bool>
+<_tab>.index = <_index>
+<_tab>.pinned = <_bool>
+<_tab>.selected = <_bool>
+<_tab>.status = <_TabStatus>
+<_tab>.windowId = <_index>
+<_tab>.windowId = <_windowId>
+<_tab>.frozen = <_bool>
+
+
+## related
+<new _window> = (await chrome_windows_create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}))
+<new _window> = (await chrome_windows_create({tabId:<_tabId>}))
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+chrome.windows.create({tabId:<_tabId>}, function(<_window_p>){<cb>})
+chrome.windows.getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}, function(<_window_p>){<cb>})
+<new _tab> = (await chrome_sessions_restore(<_sessionId>)).tab
+<_session>.tab = <_tab>
+chrome.tabCapture.capture({tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+chrome.tabCapture.getMediaStreamId({consumerTabId:<_tabId>, targetTabId:<_tabId>}, function(stream){<cb>})
+chrome.tabCapture.getMediaStreamId({targetTabId:<_tabId>}, function(stream){<cb>})
+chrome.sessions.restore(<_sessionId>, function(<_session_p>){<cb>})
+chrome.windows.remove(<_windowId>, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = <_tab>.active = <_bool>
+<callback_api> = <_tab>.audible = <_bool>
+<callback_api> = <_tab>.autoDiscardable = <_bool>
+<callback_api> = <_tab>.discarded = <_bool>
+<callback_api> = <_tab>.height = <_int>
+<callback_api> = <_tab>.width = <_int>
+<callback_api> = <_tab>.highlighted = <_bool>
+<callback_api> = <_tab>.id = <_index>
+<callback_api> = <_tab>.id = <_tabId>
+<callback_api> = #<_tab>.groupId = -1
+<callback_api> = #<_tab>.groupId = <_tabgroupId>
+<callback_api> = <_tab>.incognito = <_bool>
+<callback_api> = <_tab>.index = <_index>
+<callback_api> = <_tab>.pinned = <_bool>
+<callback_api> = <_tab>.selected = <_bool>
+<callback_api> = <_tab>.status = <_TabStatus>
+<callback_api> = <_tab>.windowId = <_index>
+<callback_api> = <_tab>.windowId = <_windowId>
+<callback_api> = <_tab>.frozen = <_bool>
+
+<callback_api> = chrome.tabs.onCreated.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onMoved.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onActiveChanged.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onActivated.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onHighlightChanged.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onHighlighted.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onDetached.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onAttached.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onRemoved.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onReplaced.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onZoomChange.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.tabs.onSelectionChanged.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onCreated.dispatch()
+<callback_api> = chrome.tabs.onUpdated.dispatch()
+<callback_api> = chrome.tabs.onMoved.dispatch()
+<callback_api> = chrome.tabs.onActiveChanged.dispatch()
+<callback_api> = chrome.tabs.onActivated.dispatch()
+<callback_api> = chrome.tabs.onHighlightChanged.dispatch()
+<callback_api> = chrome.tabs.onHighlighted.dispatch()
+<callback_api> = chrome.tabs.onDetached.dispatch()
+<callback_api> = chrome.tabs.onAttached.dispatch()
+<callback_api> = chrome.tabs.onRemoved.dispatch()
+<callback_api> = chrome.tabs.onReplaced.dispatch()
+<callback_api> = chrome.tabs.onZoomChange.dispatch()
+<callback_api> = chrome.tabs.onSelectionChanged.dispatch()
+<callback_api> = chrome.tabs.onCreated.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onMoved.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onActiveChanged.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onActivated.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onHighlightChanged.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onHighlighted.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onDetached.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onAttached.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onRemoved.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onReplaced.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onZoomChange.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.tabs.onSelectionChanged.removeListener(<_ListenerFunc_p2>)
+
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getCurrent(function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.connect(<_tabId>,{name:<_name>, frameId:<_frameId>})
+<callback_api> = chrome.tabs.connect(<_tabId>,{name:<_name>})
+<callback_api> = chrome.tabs.connect(<_tabId>,{frameId:<_frameId>})
+<callback_api> = chrome.tabs.connect(<_tabId>,{})
+<callback_api> = chrome.tabs.sendRequest(<_tabId>, <_any>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.sendRequest(<_tabId>, {}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.sendMessage(<_tabId>, <_json>, {frameId:<_frameId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.sendMessage(<_tabId>, <_json>, {}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.sendMessage(<_tabId>, {}, {frameId:<_frameId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.sendMessage(<_tabId>, {}, {frameId:<_frameId>})
+<callback_api> = chrome.tabs.sendMessage(<_tabId>, {}, {}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getSelected(<_windowId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getSelected(function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getAllInWindow(<_windowId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getAllInWindow(function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, openerTabId:<_tabId>})
+<callback_api> = chrome.tabs.create({index:<_index>, openerTabId:<_tabId>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({index:<_index>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({index:<_index>})
+<callback_api> = chrome.tabs.query({windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.highlight({windowId:<_windowId>, tabs:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.tabs.highlight({tabs:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {url:<_url>, active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>, openerTabId:<_tabId>, autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {openerTabId:<_tabId>, autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId>, {index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId_list>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId_list>, {index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.tabs.reload({bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.remove(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.remove(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.remove(<_tabId_list>, function(){<cb>})
+<callback_api> = chrome.tabs.detectLanguage(<_tabId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.captureVisibleTab(<_windowId>, {quality:<_int>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.captureVisibleTab(<_windowId>, {quality:<_int>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.executeScript(<_tabId>, {function:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.executeScript(<_tabId>, {function:<_code>, frameId:<_frameId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.executeScript(<_tabId>, {}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.executeScript({function:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.insertCSS(<_tabId>, {code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(){<cb>})
+<callback_api> = chrome.tabs.insertCSS({code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>, runAt:<_runAt>}, function(){<cb>})
+<callback_api> = chrome.tabs.insertCSS(<_tabId>, {code:<_code>, frameId:<_frameId>}, function(){<cb>})
+<callback_api> = chrome.tabs.insertCSS(<_tabId>, {}, function(){<cb>})
+<callback_api> = chrome.tabs.setZoom(<_tabId>, <_int>, function(){<cb>})
+<callback_api> = chrome.tabs.getZoom(<_tabId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.setZoomSettings(<_tabId>, {mode:<_ZoomSettingsMode>, scope:<_ZoomSettingsScope>, defaultZoomFactor:<_int>}, function(){<cb>})
+<callback_api> = chrome.tabs.setZoomSettings({mode:<_ZoomSettingsMode>, scope:<_ZoomSettingsScope>, defaultZoomFactor:<_int>}, function(){<cb>})
+<callback_api> = chrome.tabs.setZoomSettings(<_tabId>, {}, function(){<cb>})
+<callback_api> = chrome.tabs.getZoomSettings(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.discard(<_tabId>)
+<callback_api> = chrome.tabs.discard(<_tabId>)
+<callback_api> = chrome.tabs.discard(<_tabId>)
+<callback_api> = chrome.tabs.discard(<_tabId>), function(<_tab_p>){<cb>}
+<callback_api> = chrome.tabs.discard(<_tabId>), function(<_tab_p>){<cb>}
+<callback_api> = chrome.tabs.discard(<_tabId>), function(<_tab_p>){<cb>}
+<callback_api> = chrome.tabs.goForward(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.goForward(function(){<cb>})
+<callback_api> = chrome.tabs.goBack(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.goBack(function(){<cb>})
+<callback_api> = #chrome.tabs.ungroup(<_tabId>)
+<callback_api> = #chrome.tabs.ungroup(<_tabId_list>)
+<callback_api> = #chrome.tabs.ungroup(<_tabId>, function(<_tabgroupId>){<cb>})
+<callback_api> = #chrome.tabs.ungroup(<_tabId_list>, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.removeCSS({})
+<callback_api> = chrome.tabs.removeCSS(<_tabId>,{})
+<callback_api> = chrome.tabs.removeCSS(<_tabId>, {}, function(){<cb>})
+<callback_api> = chrome.tabs.removeCSS({}, function(){<cb>})
+<callback_api> = chrome.tabs.removeCSS(<_tabId>, {}, function(){<cb>})
+<callback_api> = chrome.tabs.removeCSS(<_tabId>, {code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>}, function(){<cb>})
+<callback_api> = chrome.tabs.removeCSS({code:<_code>, allFrames:<_bool>, frameId:<_frameId>, matchAboutBlank:<_bool>}, function(){<cb>})
+<callback_api> = chrome.tabs.removeCSS(<_tabId>, {code:<_code>, frameId:<_frameId>}, function(){<cb>})
+
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.create({tabId:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}, function(<_window_p>){<cb>})
+<callback_api> = <_session>.tab = <_tab>
+<callback_api> = chrome.tabCapture.capture({tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.getMediaStreamId({consumerTabId:<_tabId>, targetTabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.getMediaStreamId({targetTabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.sessions.restore(<_sessionId>, function(<_session_p>){<cb>})
+<callback_api> = chrome.windows.remove(<_windowId>, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+

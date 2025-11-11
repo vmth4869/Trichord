@@ -1,0 +1,80 @@
+<ext root=true> = <lines count=1> ##count useless in domato/xxx/generator.py, use _N_MAIN_LINES,_N_EVENTHANDLER_LINES
+!varformat fuzzvar%03d
+!lineguard try { <line> } catch(e) {}
+#!max_recursion 20
+
+!include ./api/ext_var.txt
+
+
+!begin lines
+
+################################## extension API pre ##################################
+
+<new _tab> = (await chrome_tabs_getCurrent())
+<new _window> = (await chrome_windows_getCurrent())
+<new _window_list> = (await chrome_windows_getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _windowId> = <_window>.id
+<new _frame_array> = (await chrome_webNavigation_getAllFrames(<_tabId>))
+<new _frame_array> = (await chrome_webNavigation_getAllFrames({tabId:<_tabId>}))
+<new _processId> = (await chrome_processes_getProcessIdForTab(<_tabId>))
+<new _session_list> = (await chrome_sessions_getRecentlyClosed({maxResults:<_index>}))
+<new _extensionInfo> = (await chrome_management_getSelf()) 
+<new _extensionInfo_list> = await chrome_management_getAll()
+<new _extensionInfo> = <_extensionInfo_list>[<_array_index>]
+
+
+### for callback
+<new _window_p> = <_window>
+<new _tab_p> = <_tab>
+<new _session_p> = <_session>
+<new _extensionInfo_p> = <_extensionInfo>
+
+
+################################## extension API call ##################################
+
+
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+<api_call>
+
+
+!end lines

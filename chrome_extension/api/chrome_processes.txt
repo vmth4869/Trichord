@@ -1,0 +1,57 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.processes.onUpdated.addListener(<_ListenerFunc_p1>)
+chrome.processes.onUpdatedWithMemory.addListener(<_ListenerFunc_p1>)
+chrome.processes.onCreated.addListener(<_ListenerFunc_p1>)
+chrome.processes.onUnresponsive.addListener(<_ListenerFunc_p1>)
+chrome.processes.onExited.addListener(<_ListenerFunc_p3>)
+chrome.processes.onUpdated.dispatch()
+chrome.processes.onUpdatedWithMemory.dispatch()
+chrome.processes.onCreated.dispatch()
+chrome.processes.onUnresponsive.dispatch()
+chrome.processes.onExited.dispatch()
+#chrome.processes.onUpdated.removeListener(<_ListenerFunc_p1>)
+#chrome.processes.onUpdatedWithMemory.removeListener(<_ListenerFunc_p1>)
+#chrome.processes.onCreated.removeListener(<_ListenerFunc_p1>)
+#chrome.processes.onUnresponsive.removeListener(<_ListenerFunc_p1>)
+#chrome.processes.onExited.removeListener(<_ListenerFunc_p3>)
+
+
+await chrome_processes_getProcessIdForTab(<_tabId>)
+await chrome.processes.terminate(<_processId>)
+await chrome.processes.getProcessInfo(<_processId>, <_bool>)
+chrome.processes.getProcessIdForTab(<_tabId>, function(<_callback_param_temp>){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+chrome.processes.getProcessInfo(<_processId>, <_bool>, function(<_callback_param_temp>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.processes.getProcessIdForTab(<_tabId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.processes.getProcessInfo(<_processId>, <_bool>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.processes.onUpdated.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onUpdatedWithMemory.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onCreated.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onUnresponsive.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onExited.addListener(<_ListenerFunc_p3>)
+<callback_api> = chrome.processes.onUpdated.dispatch()
+<callback_api> = chrome.processes.onUpdatedWithMemory.dispatch()
+<callback_api> = chrome.processes.onCreated.dispatch()
+<callback_api> = chrome.processes.onUnresponsive.dispatch()
+<callback_api> = chrome.processes.onExited.dispatch()
+<callback_api> = chrome.processes.onUpdated.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onUpdatedWithMemory.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onCreated.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onUnresponsive.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.processes.onExited.removeListener(<_ListenerFunc_p3>)

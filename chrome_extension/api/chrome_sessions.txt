@@ -1,0 +1,56 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+
+!lineguard try { <line> } catch(e) {}
+
+#!max_recursion 50
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+chrome.sessions.onChanged.addListener(<_ListenerFunc_p1>)
+chrome.sessions.onChanged.dispatch()
+#<chrome_sessions> = chrome.sessions.onChanged.removeListener(<_ListenerFunc_p1>)
+
+<new _session_list> = (await chrome_sessions_getRecentlyClosed({maxResults:<_index>}))
+<new _window> = (await chrome_sessions_restore(<_sessionId>)).window
+<new _tab> = (await chrome_sessions_restore(<_sessionId>)).tab
+chrome.sessions.getRecentlyClosed({maxResults:<_index>}, function(<_session_list>){<cb>})
+#chrome.sessions.getDevices({maxResults:<_index>}, function(<_session_p>){<cb>})
+chrome.sessions.restore(<_sessionId>)
+chrome.sessions.restore(<_sessionId>, function(<_session_p>){<cb>})
+<_session>.tab = <_tab>
+<_session>.window = <_window>
+
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.sessions.onChanged.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.sessions.onChanged.dispatch()
+<callback_api> = chrome.sessions.getRecentlyClosed({maxResults:<_index>}, function(<_session_list>){<cb>})
+<callback_api> = chrome.sessions.getDevices({maxResults:<_index>}, function(<_session_p>){<cb>})
+<callback_api> = chrome.sessions.restore(<_sessionId>)
+<callback_api> = chrome.sessions.restore(<_sessionId>, function(<_session_p>){<cb>})
+<callback_api> = <_session>.tab = <_tab>
+<callback_api> = <_session>.window = <_window>
+
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+

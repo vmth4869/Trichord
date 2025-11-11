@@ -1,0 +1,54 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+chrome.omnibox.onDeleteSuggestion.addListener(<_ListenerFunc_p1>)
+chrome.omnibox.onInputCancelled.addListener(<_ListenerFunc_p0>)
+chrome.omnibox.onInputChanged.addListener(<_ListenerFunc_p2>)
+chrome.omnibox.onInputEntered.addListener(<_ListenerFunc_p2>)
+chrome.omnibox.onInputStarted.addListener(<_ListenerFunc_p0>)
+chrome.omnibox.onDeleteSuggestion.dispatch()
+chrome.omnibox.onInputCancelled.dispatch()
+chrome.omnibox.onInputChanged.dispatch()
+chrome.omnibox.onInputEntered.dispatch()
+chrome.omnibox.onInputStarted.dispatch()
+await chrome.omnibox.setDefaultSuggestion({description:<_str>})
+chrome.omnibox.setDefaultSuggestion({description:<_str>})
+
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.omnibox.setDefaultSuggestion({description:<_str>})
+<callback_api> = chrome.omnibox.onDeleteSuggestion.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.omnibox.onInputCancelled.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.omnibox.onInputChanged.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.omnibox.onInputEntered.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.omnibox.onInputStarted.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.omnibox.onDeleteSuggestion.dispatch()
+<callback_api> = chrome.omnibox.onInputCancelled.dispatch()
+<callback_api> = chrome.omnibox.onInputChanged.dispatch()
+<callback_api> = chrome.omnibox.onInputEntered.dispatch()
+<callback_api> = chrome.omnibox.onInputStarted.dispatch()
+
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+

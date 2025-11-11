@@ -1,0 +1,89 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.action.onClicked.addListener(<_ListenerFunc_p0>)
+chrome.action.onUserSettingsChanged.addListener(<_ListenerFunc_p0>)
+chrome.action.onClicked.dispatch()
+chrome.action.onUserSettingsChanged.dispatch()
+chrome.action.setTitle({title:<_str>, tabId:<_tabId>},function(){<cb>})
+chrome.action.setTitle({title:<_str>},function(){<cb>})
+chrome.action.getTitle({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+chrome.action.getTitle(function(<_callback_param_temp>){<cb>})
+chrome.action.setIcon({path:<_path>, tabId:<_tabId>}, function(){<cb>})
+chrome.action.setIcon({tabId:<_tabId>}, function(){<cb>})
+chrome.action.setIcon({path:<_path>}, function(){<cb>})
+chrome.action.setPopup({tabId:<_tabId>, popup:<_str>}, function(){<cb>})
+chrome.action.setPopup({tabId:<_tabId>}, function(){<cb>})
+chrome.action.setPopup({popup:<_str>}, function(){<cb>})
+chrome.action.getPopup({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+chrome.action.getPopup({}, function(<_callback_param_temp>){<cb>})
+chrome.action.setBadgeText({text:<_str>, tabId:<_tabId>}, function(){<cb>})
+chrome.action.setBadgeText({tabId:<_tabId>}, function(){<cb>})
+chrome.action.setBadgeText({text:<_str>}, function(){<cb>})
+chrome.action.getBadgeText({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+chrome.action.getBadgeText({}, function(<_callback_param_temp>){<cb>})
+chrome.action.setBadgeBackgroundColor({color:<_ID>, tabId:<_tabId>}, function(){<cb>})
+chrome.action.setBadgeBackgroundColor({color:<_ID>}, function(){<cb>})
+chrome.action.getBadgeBackgroundColor({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+chrome.action.getBadgeBackgroundColor({}, function(<_callback_param_temp>){<cb>})
+chrome.action.enable(<_tabId>, function(){<cb>})
+chrome.action.enable(function(){<cb>})
+chrome.action.disable(<_tabId>, function(){<cb>})
+chrome.action.disable(function(){<cb>})
+
+chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onUpdated.dispatch()
+chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.action.setTitle({title:<_str>, tabId:<_tabId>},function(){<cb>})
+<callback_api> = chrome.action.setTitle({title:<_str>},function(){<cb>})
+<callback_api> = chrome.action.getTitle({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.getTitle(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.setIcon({path:<_path>, tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.action.setIcon({tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.action.setIcon({path:<_path>}, function(){<cb>})
+<callback_api> = chrome.action.setPopup({tabId:<_tabId>, popup:<_str>}, function(){<cb>})
+<callback_api> = chrome.action.setPopup({tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.action.setPopup({popup:<_str>}, function(){<cb>})
+<callback_api> = chrome.action.getPopup({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.getPopup({}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.setBadgeText({text:<_str>, tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.action.setBadgeText({tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.action.setBadgeText({text:<_str>}, function(){<cb>})
+<callback_api> = chrome.action.getBadgeText({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.getBadgeText({}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.setBadgeBackgroundColor({color:<_ID>, tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.action.setBadgeBackgroundColor({color:<_ID>}, function(){<cb>})
+<callback_api> = chrome.action.getBadgeBackgroundColor({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.getBadgeBackgroundColor({}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.action.enable(<_tabId>, function(){<cb>})
+<callback_api> = chrome.action.enable(function(){<cb>})
+<callback_api> = chrome.action.disable(<_tabId>, function(){<cb>})
+<callback_api> = chrome.action.disable(function(){<cb>})
+<callback_api> = chrome.action.onClicked.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.action.onUserSettingsChanged.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.action.onClicked.dispatch()
+<callback_api> = chrome.action.onUserSettingsChanged.dispatch()
+
+<callback_api> = chrome.tabs.onCreated.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.tabs.onUpdated.dispatch()
+<callback_api> = chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})

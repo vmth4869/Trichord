@@ -1,0 +1,47 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.storage.sync.set({color: <_color>}, function(){<cb>})
+chrome.storage.sync.get(['color'], function(result){<cb>})
+chrome.storage.sync.remove(['color'], function(result){<cb>})
+chrome.storage.sync.clear()
+chrome.storage.local.set({color: <_color>}, function(){<cb>})
+chrome.storage.local.get(['color'], function(result){<cb>})
+chrome.storage.local.remove(['color'], function(result){<cb>})
+chrome.storage.local.clear()
+
+chrome.runtime.onStartup.addListener(<_ListenerFunc_p0>)
+chrome.runtime.onStartup.dispatch()
+chrome.runtime.onStartup.removeListener(<_ListenerFunc_p0>)
+chrome.runtime.onInstalled.addListener(<_ListenerFunc_p1>)
+chrome.runtime.onInstalled.dispatch()
+chrome.runtime.onInstalled.removeListener(<_ListenerFunc_p1>)
+chrome.runtime.getBackgroundPage(function(<_callback_param_temp>){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.storage.sync.set({color: <_color>}, function(){<cb>})
+<callback_api> = chrome.storage.sync.get(['color'], function(result){<cb>})
+<callback_api> = chrome.storage.sync.remove(['color'], function(result){<cb>})
+<callback_api> = chrome.storage.sync.clear()
+<callback_api> = chrome.storage.local.set({color: <_color>}, function(){<cb>})
+<callback_api> = chrome.storage.local.get(['color'], function(result){<cb>})
+<callback_api> = chrome.storage.local.remove(['color'], function(result){<cb>})
+<callback_api> = chrome.storage.local.clear()
+
+<callback_api> = chrome.runtime.onStartup.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.runtime.onStartup.dispatch()
+<callback_api> = chrome.runtime.onStartup.removeListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.runtime.onInstalled.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.runtime.onInstalled.dispatch()
+<callback_api> = chrome.runtime.onInstalled.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.runtime.getBackgroundPage(function(<_callback_param_temp>){<cb>})

@@ -1,0 +1,50 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.alarms.onAlarm.addListener(<_ListenerFunc_p0>)
+chrome.alarms.onAlarm.addListener(<_ListenerFunc_p0>)
+chrome.alarms.onAlarm.dispatch()
+chrome.alarms.onAlarm.removeListener(<_ListenerFunc_p0>)
+chrome.alarms.create(<_name>, {when:<_int>, delayInMinutes:<_int>, periodInMinutes:<_int>})
+chrome.alarms.get(<_name>, function(<_callback_param_temp>){<cb>})
+chrome.alarms.getAll(function(<_callback_param_temp>){<cb>})
+chrome.alarms.clear(<_name>, function(<_callback_param_temp>){<cb>})
+chrome.alarms.clearAll(function(<_callback_param_temp>){<cb>})
+
+chrome.runtime.onStartup.addListener(<_ListenerFunc_p0>)
+chrome.runtime.onStartup.dispatch()
+chrome.runtime.onStartup.removeListener(<_ListenerFunc_p0>)
+chrome.runtime.onInstalled.addListener(<_ListenerFunc_p1>)
+chrome.runtime.onInstalled.dispatch()
+chrome.runtime.onInstalled.removeListener(<_ListenerFunc_p1>)
+chrome.runtime.getBackgroundPage(function(<_callback_param_temp>){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.alarms.onAlarm.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.alarms.onAlarm.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.alarms.onAlarm.dispatch()
+<callback_api> = chrome.alarms.onAlarm.removeListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.alarms.create(<_name>, {when:<_int>, delayInMinutes:<_int>, periodInMinutes:<_int>})
+<callback_api> = chrome.alarms.get(<_name>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.alarms.getAll(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.alarms.clear(<_name>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.alarms.clearAll(function(<_callback_param_temp>){<cb>})
+
+<callback_api> = chrome.runtime.onStartup.addListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.runtime.onStartup.dispatch()
+<callback_api> = chrome.runtime.onStartup.removeListener(<_ListenerFunc_p0>)
+<callback_api> = chrome.runtime.onInstalled.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.runtime.onInstalled.dispatch()
+<callback_api> = chrome.runtime.onInstalled.removeListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.runtime.getBackgroundPage(function(<_callback_param_temp>){<cb>})
+

@@ -1,0 +1,59 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.notifications.create(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>}, function(<_callback_param_temp>){<cb>})
+chrome.notifications.create(<_ID>, {}, function(<_callback_param_temp>){<cb>})
+chrome.notifications.create({}, function(<_callback_param_temp>){<cb>})
+chrome.notifications.update(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>}, function(<_callback_param_temp>){<cb>})
+chrome.notifications.update(<_ID>, {}, function(<_callback_param_temp>){<cb>})
+chrome.notifications.clear(<_ID>, function(<_callback_param_temp>){<cb>})
+chrome.notifications.getAll(function(<_callback_param_temp>){<cb>})
+chrome.notifications.getPermissionLevel(function(<_callback_param_temp>){<cb>})
+await chrome.notifications.create(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>})
+await chrome.notifications.create(<_ID>, {})
+await chrome.notifications.create({})
+await chrome.notifications.update(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>})
+await chrome.notifications.update(<_ID>, {})
+await chrome.notifications.clear(<_ID>)
+await chrome.notifications.getAll()
+await chrome.notifications.getPermissionLevel()
+
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+chrome.contextMenus.create({checked:<_bool>, contexts:<_contextTypes_list>, documentUrlPatterns:<_urlPattern>, enabled:<_bool>, id:<contextMenusid>, parentId:<contextMenusid>, targetUrlPatterns:<_urlPattern>, title:<_name>, type:<_ItemType>}, function(){<cb>})
+chrome.runtime.getBackgroundPage(function(<_callback_param_temp>){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.notifications.create(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.create(<_ID>, {}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.create({}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.update(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.update(<_ID>, {}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.clear(<_ID>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.getAll(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.getPermissionLevel(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.notifications.create(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>})
+<callback_api> = chrome.notifications.create(<_ID>, {})
+<callback_api> = chrome.notifications.create({})
+<callback_api> = chrome.notifications.update(<_ID>, {type:<_TemplateType>, iconUrl:<_url>, appIconMaskUrl:<_url>, title:<_str>, message:<_str>, contextMessage:<_str>, priority:<_int>, eventTime:<_int>, progress:<_int>, isClickable:<_bool>, requireInteraction:<_bool>})
+<callback_api> = chrome.notifications.update(<_ID>, {})
+<callback_api> = chrome.notifications.clear(<_ID>)
+<callback_api> = chrome.notifications.getAll()
+<callback_api> = chrome.notifications.getPermissionLevel()
+
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.contextMenus.create({checked:<_bool>, contexts:<_contextTypes_list>, documentUrlPatterns:<_urlPattern>, enabled:<_bool>, id:<contextMenusid>, parentId:<contextMenusid>, targetUrlPatterns:<_urlPattern>, title:<_name>, type:<_ItemType>}, function(){<cb>})
+<callback_api> = chrome.runtime.getBackgroundPage(function(<_callback_param_temp>){<cb>})

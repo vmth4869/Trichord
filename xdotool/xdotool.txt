@@ -1,0 +1,58 @@
+
+!varformat fuzzvar%03d
+!max_recursion 1000
+
+
+<pos_x p=0.7> = <int min=90 max=700>
+<pos_x p=0.3> = <int min=90 max=1200>
+#<pos_x p=0.1> = <int min=80 max=1830>
+<pos_y p=0.7> = <int min=50 max=100>
+<pos_y p=0.3> = <int min=50 max=400>
+#<pos_y p=0.1> = <int min=40 max=800>
+<xdo_x_y_> = <pos_x> <pos_y>
+
+
+
+<windowid> = $(xdotool search --class "chrome" | shuf -n 1)
+
+ 
+<xdo_mousemove> = xdotool mousemove <xdo_x_y_>
+<xdo_click> = xdotool mousemove <xdo_x_y_> click 1
+<xdo_click> = xdotool mousemove <xdo_x_y_> click 1
+<xdo_click> = xdotool mousemove <xdo_x_y_> click 1
+<xdo_click> = xdotool mousemove <xdo_x_y_> click 1
+
+
+<xdo_click> = xdotool click 1
+<xdo_click> = xdotool click --repeat 2 1
+<xdo_click> = xdotool click --repeat 3 1
+<xdo_click> = xdotool click --repeat <int min=3 max=10> 1
+
+<xdo_active> = xdotool search --name "chrome" windowactivate 
+<xdo_active> = xdotool windowactivate <windowid>
+<xdo_active> = xdotool windowmove <windowid> <xdo_x_y_>
+#<xdo_type> = 
+
+<xdo_scroll> = for i in <int min=1 max=20>; do<cr>xdotool click 4<cr>xdotool click 4<cr>done
+
+#<xdo_drag> = <xdo_mousemove> &<cr>xdotool mousedown 1 &<cr>xdotool mousemove_relative --sync 500 400 &<cr>xdotool mouseup 1
+<xdo_drag> = <xdo_mousemove> &<cr>xdotool mousedown 1 &<cr><xdo_mousemove> &<cr>xdotool mouseup 1
+<xdo_drag> = <xdo_active> &<cr>xdotool mousedown 1 &<cr><xdo_mousemove> &<cr>xdotool mouseup 1
+
+
+<xdo_cmd> = <xdo_mousemove> 
+<xdo_cmd> = <xdo_click>
+#<xdo_cmd> = <xdo_scroll>
+<xdo_cmd> = <xdo_drag>
+<xdo_cmd> = <xdo_active>
+
+!begin lines
+
+
+
+<xdo_cmd>
+
+
+
+
+!end lines

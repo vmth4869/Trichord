@@ -1,0 +1,92 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.browsingData.settings(function(<_callback_param_temp>){<cb>})
+chrome.browsingData.remove({since:<_int>}, {appcache:<_bool>, cache:<_bool>, cacheStorage:<_bool>, cookies:<_bool>, downloads:<_bool>, fileSystems:<_bool>, formData:<_bool>, history:<_bool>, indexedDB:<_bool>, localStorage:<_bool>, serverBoundCertificates:<_bool>, passwords:<_bool>, pluginData:<_bool>, serviceWorkers:<_bool>, webSQL:<_bool>}, function(){<cb>})
+chrome.browsingData.remove({}, {appcache:<_bool>, cache:<_bool>, cacheStorage:<_bool>, cookies:<_bool>, downloads:<_bool>, fileSystems:<_bool>, formData:<_bool>, history:<_bool>, indexedDB:<_bool>, localStorage:<_bool>, serverBoundCertificates:<_bool>, passwords:<_bool>, pluginData:<_bool>, serviceWorkers:<_bool>, webSQL:<_bool>}, function(){<cb>})
+chrome.browsingData.remove({since:<_int>}, {}, function(){<cb>})
+chrome.browsingData.removeAppcache({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeAppcache({}, function(){<cb>})
+chrome.browsingData.removeCache({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeCache({}, function(){<cb>})
+chrome.browsingData.removeCacheStorage({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeCacheStorage({}, function(){<cb>})
+chrome.browsingData.removeCookies({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeCookies({}, function(){<cb>})
+chrome.browsingData.removeDownloads({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeDownloads({}, function(){<cb>})
+chrome.browsingData.removeFileSystems({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeFileSystems({}, function(){<cb>})
+chrome.browsingData.removeFormData({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeFormData({}, function(){<cb>})
+chrome.browsingData.removeHistory({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeHistory({}, function(){<cb>})
+chrome.browsingData.removeIndexedDB({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeIndexedDB({}, function(){<cb>})
+chrome.browsingData.removeLocalStorage({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeLocalStorage({}, function(){<cb>})
+chrome.browsingData.removePluginData({since:<_int>}, function(){<cb>})
+chrome.browsingData.removePluginData({}, function(){<cb>})
+chrome.browsingData.removePasswords({since:<_int>}, function(){<cb>})
+chrome.browsingData.removePasswords({}, function(){<cb>})
+chrome.browsingData.removeServiceWorkers({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeServiceWorkers({}, function(){<cb>})
+chrome.browsingData.removeWebSQL({since:<_int>}, function(){<cb>})
+chrome.browsingData.removeWebSQL({}, function(){<cb>})
+
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.browsingData.settings(function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.browsingData.remove({since:<_int>}, {appcache:<_bool>, cache:<_bool>, cacheStorage:<_bool>, cookies:<_bool>, downloads:<_bool>, fileSystems:<_bool>, formData:<_bool>, history:<_bool>, indexedDB:<_bool>, localStorage:<_bool>, serverBoundCertificates:<_bool>, passwords:<_bool>, pluginData:<_bool>, serviceWorkers:<_bool>, webSQL:<_bool>}, function(){<cb>})
+<callback_api> = chrome.browsingData.remove({}, {appcache:<_bool>, cache:<_bool>, cacheStorage:<_bool>, cookies:<_bool>, downloads:<_bool>, fileSystems:<_bool>, formData:<_bool>, history:<_bool>, indexedDB:<_bool>, localStorage:<_bool>, serverBoundCertificates:<_bool>, passwords:<_bool>, pluginData:<_bool>, serviceWorkers:<_bool>, webSQL:<_bool>}, function(){<cb>})
+<callback_api> = chrome.browsingData.remove({since:<_int>}, {}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeAppcache({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeAppcache({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeCache({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeCache({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeCacheStorage({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeCacheStorage({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeCookies({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeCookies({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeDownloads({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeDownloads({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeFileSystems({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeFileSystems({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeFormData({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeFormData({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeHistory({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeHistory({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeIndexedDB({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeIndexedDB({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeLocalStorage({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeLocalStorage({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removePluginData({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removePluginData({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removePasswords({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removePasswords({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeServiceWorkers({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeServiceWorkers({}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeWebSQL({since:<_int>}, function(){<cb>})
+<callback_api> = chrome.browsingData.removeWebSQL({}, function(){<cb>})
+
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})

@@ -1,0 +1,60 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+chrome.history.onVisited.addListener(<_ListenerFunc_p1>)
+chrome.history.onVisitRemoved.addListener(<_ListenerFunc_p1>)
+chrome.history.onVisited.dispatch()
+chrome.history.onVisitRemoved.dispatch()
+#chrome.history.onVisited.removeListener(<_ListenerFunc_p1>)
+#chrome.history.onVisitRemoved.removeListener(<_ListenerFunc_p1>)
+
+chrome.history.search({text:<_str>, startTime:<_int>, endTime:<_int>, maxResults:<_int>}, function(<_callback_param_temp>){<cb>})
+chrome.history.getVisits({url:<_url>}, function(<_callback_param_temp>){<cb>})
+chrome.history.addUrl({url:<_url>}, function(){<cb>})
+chrome.history.deleteUrl({url:<_url>}, function(){<cb>})
+chrome.history.deleteRange({startTime:<_int>, endTime:<_int>}, function(){<cb>})
+chrome.history.deleteAll(function(){<cb>})
+
+chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onUpdated.dispatch()
+chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.history.onVisited.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.history.onVisitRemoved.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.history.onVisited.dispatch()
+<callback_api> = chrome.history.onVisitRemoved.dispatch()
+#<callback_api> = chrome.history.onVisited.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.history.onVisitRemoved.removeListener(<_ListenerFunc_p1>)
+
+<callback_api> = chrome.history.search({text:<_str>, startTime:<_int>, endTime:<_int>, maxResults:<_int>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.history.getVisits({url:<_url>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.history.addUrl({url:<_url>}, function(){<cb>})
+<callback_api> = chrome.history.deleteUrl({url:<_url>}, function(){<cb>})
+<callback_api> = chrome.history.deleteRange({startTime:<_int>, endTime:<_int>}, function(){<cb>})
+<callback_api> = chrome.history.deleteAll(function(){<cb>})
+
+<callback_api> = chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onUpdated.dispatch()
+<callback_api> = chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+

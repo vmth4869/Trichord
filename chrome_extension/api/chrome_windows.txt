@@ -1,0 +1,125 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.windows.onCreated.addListener(<_ListenerFunc_p1>)
+chrome.windows.onRemoved.addListener(<_ListenerFunc_p1>)
+chrome.windows.onFocusChanged.addListener(<_ListenerFunc_p1>)
+chrome.windows.onBoundsChanged.addListener(<_ListenerFunc_p1>)
+chrome.windows.onCreated.dispatch()
+chrome.windows.onRemoved.dispatch()
+chrome.windows.onFocusChanged.dispatch()
+chrome.windows.onBoundsChanged.dispatch()
+
+<new _window> = (await chrome_windows_get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window> = (await chrome_windows_get(<_windowId>, {}))
+<new _window> = (await chrome_windows_getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window> = (await chrome_windows_getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window_list> = (await chrome_windows_getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window> = (await chrome_windows_create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}))
+<new _window> = (await chrome_windows_create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}))
+<new _window> = (await chrome_windows_create({tabId:<_tabId>}))
+<new _window> = (await chrome_windows_update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}))
+<new _window> = (await chrome_windows_update(<_windowId>))
+chrome.windows.get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.get(<_windowId>, {}, function(<_window_p>){<cb>})
+chrome.windows.getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+chrome.windows.create({tabId:<_tabId>}, function(<_window_p>){<cb>})
+chrome.windows.update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}, function(<_window_p>){<cb>})
+chrome.windows.update(<_windowId>, function(<_window_p>){<cb>})
+chrome.windows.remove(<_windowId>, function(){<cb>})
+
+<_window>.alwaysOnTop = <_bool>
+<_window>.focused = <_bool>
+<_window>.height = <_int>
+<_window>.width = <_int>
+<_window>.id = <_index>
+<_window>.id = <_windowId>
+<_window>.incognito = <_bool>
+<_window>.left = <_int>
+<_window>.state = <_WindowState>
+<_window>.top = <_int>
+<_window>.type = <_windowType>
+
+<new _tab> = (await chrome_tabs_getSelected(<_windowId>))
+<new _tab> = (await chrome_tabs_getAllInWindow(<_windowId>))
+<new _tab> = (await chrome_tabs_getAllInWindow())
+<new _tab> = (await chrome_tabs_create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}))
+<new _tab> = (await chrome_tabs_move(<_tabId>, {windowId:<_windowId>, index:<_index>}))
+<new _tabId_list> = (await chrome_tabs_move(<_tabId_list>, {windowId:<_windowId>, index:<_index>}))
+
+chrome.tabs.getSelected(<_windowId>, function(<_tab_p>){<cb>})
+chrome.tabs.getAllInWindow(<_windowId>, function(<_tab_p>){<cb>})
+chrome.tabs.getAllInWindow(function(<_tab_p>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.query({windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.highlight({windowId:<_windowId>, tabs:<_tabId>}, function(<_window_p>){<cb>})
+chrome.tabs.move(<_tabId>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.captureVisibleTab(<_windowId>, {quality:<_int>}, function(<_callback_param_temp>){<cb>})
+<_tab>.windowId = <_index>
+<_tab>.windowId = <_windowId>
+<_session>.window = <_window>
+chrome.sessions.restore(<_sessionId>, function(<_session_p>){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.windows.get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.get(<_windowId>, {}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.create({tabId:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.update(<_windowId>, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.remove(<_windowId>, function(){<cb>})
+
+<callback_api> = <_window>.alwaysOnTop = <_bool>
+<callback_api> = <_window>.focused = <_bool>
+<callback_api> = <_window>.height = <_int>
+<callback_api> = <_window>.width = <_int>
+<callback_api> = <_window>.id = <_index>
+<callback_api> = <_window>.id = <_index>
+<callback_api> = <_window>.id = <_windowId>
+<callback_api> = <_window>.id = <_windowId>
+<callback_api> = <_window>.incognito = <_bool>
+<callback_api> = <_window>.left = <_int>
+<callback_api> = <_window>.state = <_WindowState>
+<callback_api> = <_window>.top = <_int>
+<callback_api> = <_window>.type = <_windowType>
+
+<callback_api> = chrome.tabs.getSelected(<_windowId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getAllInWindow(<_windowId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getAllInWindow(function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.highlight({windowId:<_windowId>, tabs:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId_list>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getSelected(<_windowId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getAllInWindow(<_windowId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getAllInWindow(function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.highlight({windowId:<_windowId>, tabs:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.tabs.move(<_tabId>, {windowId:<_windowId>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.captureVisibleTab(<_windowId>, {quality:<_int>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = <_tab>.windowId = <_index>
+<callback_api> = <_tab>.windowId = <_windowId>
+<callback_api> = <_session>.window = <_window>
+<callback_api> = chrome.sessions.restore(<_sessionId>, function(<_session_p>){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})

@@ -1,0 +1,55 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+
+!lineguard try { <line> } catch(e) {}
+
+#!max_recursion 50
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+chrome.tabCapture.capture({tabId:<_tabId>}, function(stream){<cb>})
+chrome.tabCapture.capture({tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+chrome.tabCapture.capture({tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+chrome.tabCapture.getCapturedTabs(function(CaptureInfos){<cb>})
+chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>}, function(stream){<cb>})
+chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+chrome.tabCapture.getMediaStreamId({consumerTabId:<_tabId>, targetTabId:<_tabId>}, function(stream){<cb>})
+chrome.tabCapture.getMediaStreamId({consumerTabId:<_tabId>}, function(stream){<cb>})
+chrome.tabCapture.getMediaStreamId({targetTabId:<_tabId>}, function(stream){<cb>})
+chrome.tabCapture.onStatusChanged.addListener(function(CaptureInfo){<cb>})
+chrome.tabCapture.onStatusChanged.dispatch()
+
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.update(<_tabId>, {url:<_url>, active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>, openerTabId:<_tabId>, autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.tabCapture.capture({tabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.capture({tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.capture({tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.getCapturedTabs(function(CaptureInfos){<cb>})
+<callback_api> = chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.captureOffscreenTab(<_name>, {tabId:<_tabId>, status:<_TabStatus>, fullscreen:<_bool>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.getMediaStreamId({consumerTabId:<_tabId>, targetTabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.getMediaStreamId({consumerTabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.getMediaStreamId({targetTabId:<_tabId>}, function(stream){<cb>})
+<callback_api> = chrome.tabCapture.onStatusChanged.addListener(function(CaptureInfo){<cb>})
+<callback_api> = chrome.tabCapture.onStatusChanged.dispatch()
+
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.update(<_tabId>, {url:<_url>, active:<_bool>, highlighted:<_bool>, selected:<_bool>, pinned:<_bool>, muted:<_bool>, openerTabId:<_tabId>, autoDiscardable:<_bool>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})

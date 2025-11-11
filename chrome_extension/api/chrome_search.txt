@@ -1,0 +1,61 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await chrome.search.query({text:<_str>, disposition:<_disposition>, tabId:<_tabId>}, function(){<cb>})
+await chrome.search.query({text:<_str>, disposition:<_disposition>}, function(){<cb>})
+await chrome.search.query({text:<_str>, tabId:<_tabId>}, function(){<cb>})
+await chrome.search.query({text:<_str>}, function(){<cb>})
+await chrome.search.query({text:<_str>, disposition:<_disposition>, tabId:<_tabId>})
+chrome.search.query({text:<_str>, disposition:<_disposition>, tabId:<_tabId>}, function(){<cb>})
+chrome.search.query({text:<_str>, disposition:<_disposition>}, function(){<cb>})
+chrome.search.query({text:<_str>, tabId:<_tabId>}, function(){<cb>})
+chrome.search.query({text:<_str>}, function(){<cb>})
+chrome.search.query({text:<_str>, disposition:<_disposition>, tabId:<_tabId>})
+
+<new _window> = (await chrome_windows_get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window> = (await chrome_windows_get(<_windowId>, {}))
+<new _window> = (await chrome_windows_getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window> = (await chrome_windows_getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}))
+<new _window> = (await chrome_windows_create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}))
+<new _window> = (await chrome_windows_create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}))
+<new _window> = (await chrome_windows_create({tabId:<_tabId>}))
+<new _window> = (await chrome_windows_update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}))
+<new _window> = (await chrome_windows_update(<_windowId>))
+<new _tab> = (await chrome_tabs_getCurrent(<_tabId>))
+<new _tab> = (await chrome_tabs_duplicate(<_tabId>))
+<new _tab> = (await chrome_tabs_discard(<_tabId>))
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.tabs.remove(<_tabId>, function(){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.search.query({text:<_str>, disposition:<_disposition>, tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.search.query({text:<_str>, disposition:<_disposition>}, function(){<cb>})
+<callback_api> = chrome.search.query({text:<_str>, tabId:<_tabId>}, function(){<cb>})
+<callback_api> = chrome.search.query({text:<_str>}, function(){<cb>})
+<callback_api> = chrome.search.query({text:<_str>, disposition:<_disposition>, tabId:<_tabId>})
+
+<callback_api> = chrome.windows.get(<_windowId>, {populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.get(<_windowId>, {}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getCurrent({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getLastFocused({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.getAll({populate:<_bool>, windowTypes:<_windowTypes_list>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.create({url:<_url>, tabId:<_tabId>, left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, incognito:<_bool>, type:<_CreateType>, state:<_WindowState>, setSelfAsOpener:<_bool>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.create({tabId:<_tabId>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.update(<_windowId>, {left:<_int>, top:<_int>, width:<_int>, height:<_int>, focused:<_bool>, drawAttention:<_bool>, state:<_WindowState>}, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.update(<_windowId>, function(<_window_p>){<cb>})
+<callback_api> = chrome.windows.remove(<_windowId>, function(){<cb>})
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.getCurrent(function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, function(){<cb>})
+<callback_api> = chrome.tabs.remove(<_tabId>, function(){<cb>})

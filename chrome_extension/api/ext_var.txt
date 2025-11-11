@@ -1,0 +1,498 @@
+<interestingint> = 32768
+<interestingint> = 65535
+<interestingint> = 65536
+#<interestingint> = 1073741824
+#<interestingint> = 536870912
+#<interestingint> = 268435456
+<interestingint> = 4294967295
+<interestingint> = 2147483648
+#<interestingint> = 2147483647
+<interestingint> = -2147483648
+#<interestingint> = -1073741824
+<interestingint> = -32769
+
+<fuzzint> = 0
+<fuzzint> = 0
+<fuzzint> = 1
+<fuzzint> = 1
+<fuzzint> = -1
+<fuzzint> = <int min=0 max=10>
+<fuzzint> = <int min=0 max=100>
+
+<for_sign> = <
+<for_int p=0.4> = <for_sign> <int min=1 max=20>
+<for_int> = <for_sign> <int min=100 max=1000>
+<for_int> = <for_sign> 10000
+<for_int> = <for_sign> 65535
+
+<_color> = "<hash>3aa757"
+<_color> = "grey"
+<_color> = "blue"
+<_color> = "red"
+<_color> = "yellow"
+<_color> = "green"
+<_color> = "pink"
+<_color> = "purple"
+<_color> = "cyan"
+<_color> = "orange"
+
+<_bool p=0.6> = true
+<_bool p=0.4> = false
+<_int p=0.6> = <fuzzint>
+<_int p=0.4> = <interestingint>
+<_index p=0.7> = <int min=-2 max=10>
+<_index p=0.2> = <interestingint>
+<_index p=0.1> = <fuzzint>
+<_array_index p=0.4> = <int min=0 max=5>
+<_array_index p=0.3> = <int min=0 max=10>
+<_array_index p=0.2> = <int min=0 max=20>
+<_array_index p=0.1> = <int min=0 max=50>
+
+<_ID> = "<_index>"
+<_IDs_list> = [<_IDs>]
+<_IDs> = <_IDs>,<_ID>
+<_IDs nonrecursive> = <_ID>
+
+<_name p=0.6> = <_extensionInfo_name>
+<_name> = "aaa"
+<_name> = "bbb"
+<_name> = "ccc"
+<_str> = "<string min=97 max=122>"
+<_str p=0.6> = <_name>
+
+<_contextType> = "all"
+<_contextType> = "all"
+<_contextType> = "page"
+<_contextType> = "frame"
+<_contextType> = "selection"
+<_contextType> = "link"
+<_contextType> = "editable"
+<_contextType> = "image"
+<_contextType> = "video"
+<_contextType> = "audio"
+<_contextType> = "launcher"
+<_contextType> = "browser_action"
+<_contextType> = "page_action"
+<_contextType> = "action"
+<_contextTypes_list> = [<_contextTypes>]
+<_contextTypes> = <_contextTypes>,<_contextType>
+<_contextTypes nonrecursive> = <_contextType>
+
+<_url> = chrome.extension.getURL("js/3.html")
+#<_url p=0.3> = chrome.extension.getURL("js/2.html")
+<_url> = chrome.extension.getURL("js/1.html")
+<_url> = 'http://www.google.com'
+<_url> = 'chrome://newtab'
+
+<_options> = "openFile"
+<_options> = "openWritableFile"
+<_options> = "saveFile"
+<_options> = "openDirectory"
+
+<_urlPattern> = "https://*/*"
+<_urlPattern> = "http://*"
+<_urlPattern> = "https://*/foo*"
+<_urlPattern> = "https://*.google.com/foo*bar"
+<_urlPattern> = "http://127.0.0.1/*"
+<_urlPattern> = "http://127.0.0.1/"
+<_urlPattern> = "http://localhost/*"
+
+<_windowType> = "normal"
+<_windowType> = "popup"
+<_windowType> = "panel"
+<_windowType> = "app"
+<_windowType> = "devtools"
+#getWindowTypes <_windowTypes_list>
+<_windowTypes_list> = [<_windowTypes>]
+<_windowTypes> = <_windowTypes>,<_windowType>
+<_windowTypes nonrecursive> = <_windowType>
+
+<_window> = <_window_list>[<_array_index>]
+<_window> = <_session_list>[<_array_index>].window
+<_tab> = <_session_list>[<_array_index>].tab
+
+<_TabStatus> = "unloaded"
+<_TabStatus> = "loading"
+<_TabStatus> = "complete"
+<_TabStatus> = "complete"
+
+<_tabCapture_status> = "pending"
+<_tabCapture_status> = "active"
+<_tabCapture_status> = "stopped"
+<_tabCapture_status> = "error"
+ 
+<_runAt> = "document_start"
+<_runAt> = "document_end"
+<_runAt> = "document_idle"
+
+
+<_tabId> = <_tab>.id ## getTabId
+<_tabId_list> = [<_tabIds>]  ## getTabIdorList
+<_tabIds> = <_tabIds>,<_tabId>
+<_tabIds nonrecursive> = <_tabId>
+
+#<_tabgroupId> = <_tab>.groupId
+
+<_sessionId> = <_tab>.sessionId ## getSessionId
+<_session> = <_session_list>[<_array_index>]
+
+
+<_extensionInfo_id> = <_extensionInfo>.id ##getExtensionId
+<_extensionInfo_id> = <_extensionInfo_list>[<_array_index>].id
+##
+<_extensionInfo_name> = <_extensionInfo>.name ##getExtensionName
+<_extensionInfo_name> = <_extensionInfo_list>[<_array_index>].name
+
+##getCode
+<_code> = <_ListenerFunc_p0>
+#<_code> = "<_ListenerFunc_p0>()"
+#<_code> = "<_code_s>"
+#<_code_s> = <_code_s><lines count=1>
+#<_code_s nonrecursive> = <lines count=1>"
+#<new _codes> = "<_code>"
+
+#getAnyJson <_json>
+<_jsonkey> = "<string min=97 max=122>"
+<_jsonvalue> = <_any>
+<_json> = {<_jsonkey>:<_json>,<_jsonkey>:<_jsonvalue>}
+<_json nonrecursive> = {<_jsonkey>:<_jsonvalue>}
+
+#getAny <_any>
+<_any> = <_tabId>
+<_any> = <_url>
+<_any> = <_int>
+<_any> = <_bool>
+<_any> = <_window>.id
+<_any> = <_IDs_list>
+<_any> = "<string min=97 max=122>"
+<_any> = <_json>
+<_any> = <_ListenerFuncName_param>
+
+#getCreateType
+<_CreateType> = "normal"
+<_CreateType> = "popup"
+<_CreateType> = "panel"
+
+#getWindowState
+<_WindowState> = "normal"
+<_WindowState> = "minimized"
+<_WindowState> = "maximized"
+<_WindowState> = "fullscreen"
+<_WindowState> = "locked-fullscreen"
+
+#getMessageSender
+#<_messageSender> = {'tab':<_tab>,'frameId':<_frameId>,'id':<_extensionInfo_id>,'url':<_url>,'nativeApplication':<_name>,'tlsChannelId':<_tabId>,'origin':<_url>}
+
+
+<_disposition> = "CURRENT_TAB"
+<_disposition> = "NEW_TAB"
+<_disposition> = "NEW_WINDOW"
+
+
+<_account> = <_accounts_list>.[<_index>]
+<_TokenDetails> = {interactive:<_bool>, account:<_account>, scopes:"", enableGranularPermissions: <_bool>}
+<_ProfileDetails> = {accountStatus:SYNC}
+<_ProfileDetails> = {accountStatus:ANY}
+<_WebAuthFlowDetails> = {url:<_url>, interactive:<_bool>}
+
+##################
+!begin function savesize
+  context['size'] = ret_val
+!end function
+
+!begin function createbody
+  n = int(context['size'])
+  ret_val = 'a' * n
+!end function
+
+<header> = Size: <int min=1 max=2 beforeoutput=savesize>
+<body> = <call function=createbody>
+#################<header><cr><lf><body>
+
+#getFrameId: <_frameId>
+#pre: <new _frame_array> = chrome_webNavigation_getAllFrames({tabId:<_tabId>})
+<_frameId> = <_frame_array>[<_array_index>].frameId
+
+
+#getProcessId: <_processId>
+#pre: <new _frame_array> = chrome_webNavigation_getAllFrames({tabId:<_tabId>})
+<_processId> = <_frame_array>[<int min=0 max=20>].processId
+#<new _processId> = chrome_processes_getProcessIdForTab(<_tabId>) ##ProcessId
+
+<_getDesktopCaptureSourceType> = "screen"
+<_getDesktopCaptureSourceType> = "window"
+<_getDesktopCaptureSourceType> = "tab"
+<_getDesktopCaptureSourceType> = "audio"
+#getDesktopCaptureSourceType <_getDesktopCaptureSourceTypes_list>
+<_getDesktopCaptureSourceTypes_list> = [<_getDesktopCaptureSourceTypes>]
+<_getDesktopCaptureSourceTypes> = <_getDesktopCaptureSourceTypes>,<_getDesktopCaptureSourceType>
+<_getDesktopCaptureSourceTypes nonrecursive> = <_getDesktopCaptureSourceType>
+
+
+#getBuffer
+<_buffer> = new ArrayBuffer(<_int>)
+
+
+<_ZoomSettingsMode> = "automatic"
+<_ZoomSettingsMode> = "manual"
+<_ZoomSettingsMode> = "disabled"
+
+<_ZoomSettingsScope> = "per-origin"
+<_ZoomSettingsScope> = "per-tab"
+
+<_LaunchType> = "OPEN_AS_REGULAR_TAB"
+<_LaunchType> = "OPEN_AS_PINNED_TAB"
+<_LaunchType> = "OPEN_AS_WINDOW"
+<_LaunchType> = "OPEN_FULL_SCREEN"
+
+<_path> = ".."
+<_path> = "./"
+<_path> = "./js/"
+
+<_ViewType> = "tab"
+<_ViewType> = "notification"
+<_ViewType> = "popup"
+
+<_filter> = "noTreeChanges"
+<_filter> = "liveRegionTreeChanges"
+<_filter> = "textMarkerChanges"
+<_filter> = "allTreeChanges"
+
+<_ItemType> = "normal"
+<_ItemType> = "checkbox"
+<_ItemType> = "radio"
+<_ItemType> = "separator"
+
+<_TemplateType> = "basic"
+<_TemplateType> = "image"
+<_TemplateType> = "list"
+<_TemplateType> = "progress"
+
+<_AssistiveWindowButton> = "undo"
+<_AssistiveWindowButton> = "addToDictionary"
+<_AssistiveWindowType> = "undo"
+<_AutoCapitalizeType> = "characters"
+<_AutoCapitalizeType> = "words"
+<_AutoCapitalizeType> = "sentences"
+<_InputContextType> = "text"
+<_InputContextType> = "search"
+<_InputContextType> = "tel"
+<_InputContextType> = "url"
+<_InputContextType> = "email"
+<_InputContextType> = "number"
+<_InputContextType> = "password"
+<_InputContextType> = "null"
+<_KeyboardEventType> = "keyup"
+<_KeyboardEventType> = "keydown"
+<_MenuItemStyle> = "check"
+<_MenuItemStyle> = "radio"
+<_MenuItemStyle> = "separator"
+<_MouseButton> = "left"
+<_MouseButton> = "middle"
+<_MouseButton> = "right"
+<_ScreenType> = "normal"
+<_ScreenType> = "login"
+<_ScreenType> = "lock"
+<_ScreenType> = "secondary-login"
+<_UnderlineStyle> = "underline"
+<_UnderlineStyle> = "doubleUnderline"
+<_UnderlineStyle> = "noUnderline"
+<_WindowPosition> = "cursor"
+<_WindowPosition> = "composition"
+
+
+<_RequestInfo> = {tabIds:<_tabId>, guestProcessId:<_processId>, targetWebview: <_bool>}
+<_securityOrigin> = ""
+<_MetaDataEntry> = {key:<_str>, value:<_any>}
+<_logId> = <_index> ## should be return from StartEventLogging()
+
+<contextMenusid> = <_name>
+<contextMenusid> = <_index>
+
+
+
+
+
+
+
+#<_font_details> = {script:<_font_ScriptCode>, genericFamily:<_font_GenericFamily>}
+<_font_details> = {genericFamily:<_font_GenericFamily>}
+
+<_font_GenericFamily> = "standard"
+<_font_GenericFamily> = "sansserif"
+<_font_GenericFamily> = "serif"
+<_font_GenericFamily> = "fixed"
+<_font_GenericFamily> = "cursive"
+<_font_GenericFamily> = "fantasy"
+
+<_font_ScriptCode> = "Afak"
+<_font_ScriptCode> = "Arab"
+<_font_ScriptCode> = "Armi"
+<_font_ScriptCode> = "Armn"
+<_font_ScriptCode> = "Avst"
+<_font_ScriptCode> = "Bali"
+<_font_ScriptCode> = "Bamu"
+<_font_ScriptCode> = "Bass"
+<_font_ScriptCode> = "Batk"
+<_font_ScriptCode> = "Beng"
+<_font_ScriptCode> = "Blis"
+<_font_ScriptCode> = "Bopo"
+<_font_ScriptCode> = "Brah"
+<_font_ScriptCode> = "Brai"
+<_font_ScriptCode> = "Bugi"
+<_font_ScriptCode> = "Buhd"
+<_font_ScriptCode> = "Cakm"
+<_font_ScriptCode> = "Cans"
+<_font_ScriptCode> = "Cari"
+<_font_ScriptCode> = "Cham"
+<_font_ScriptCode> = "Cher"
+<_font_ScriptCode> = "Cirt"
+<_font_ScriptCode> = "Copt"
+<_font_ScriptCode> = "Cprt"
+<_font_ScriptCode> = "Cyrl"
+<_font_ScriptCode> = "Cyrs"
+<_font_ScriptCode> = "Deva"
+<_font_ScriptCode> = "Dsrt"
+<_font_ScriptCode> = "Dupl"
+<_font_ScriptCode> = "Egyd"
+<_font_ScriptCode> = "Egyh"
+<_font_ScriptCode> = "Egyp"
+<_font_ScriptCode> = "Elba"
+<_font_ScriptCode> = "Ethi"
+<_font_ScriptCode> = "Geor"
+<_font_ScriptCode> = "Geok"
+<_font_ScriptCode> = "Glag"
+<_font_ScriptCode> = "Goth"
+<_font_ScriptCode> = "Gran"
+<_font_ScriptCode> = "Grek"
+<_font_ScriptCode> = "Gujr"
+<_font_ScriptCode> = "Guru"
+<_font_ScriptCode> = "Hang"
+<_font_ScriptCode> = "Hani"
+<_font_ScriptCode> = "Hano"
+<_font_ScriptCode> = "Hans"
+<_font_ScriptCode> = "Hant"
+<_font_ScriptCode> = "Hebr"
+<_font_ScriptCode> = "Hluw"
+<_font_ScriptCode> = "Hmng"
+<_font_ScriptCode> = "Hung"
+<_font_ScriptCode> = "Inds"
+<_font_ScriptCode> = "Ital"
+<_font_ScriptCode> = "Java"
+<_font_ScriptCode> = "Jpan"
+<_font_ScriptCode> = "Jurc"
+<_font_ScriptCode> = "Kali"
+<_font_ScriptCode> = "Khar"
+<_font_ScriptCode> = "Khmr"
+<_font_ScriptCode> = "Khoj"
+<_font_ScriptCode> = "Knda"
+<_font_ScriptCode> = "Kpel"
+<_font_ScriptCode> = "Kthi"
+<_font_ScriptCode> = "Lana"
+<_font_ScriptCode> = "Laoo"
+<_font_ScriptCode> = "Latf"
+<_font_ScriptCode> = "Latg"
+<_font_ScriptCode> = "Latn"
+<_font_ScriptCode> = "Lepc"
+<_font_ScriptCode> = "Limb"
+<_font_ScriptCode> = "Lina"
+<_font_ScriptCode> = "Linb"
+<_font_ScriptCode> = "Lisu"
+<_font_ScriptCode> = "Loma"
+<_font_ScriptCode> = "Lyci"
+<_font_ScriptCode> = "Lydi"
+<_font_ScriptCode> = "Mand"
+<_font_ScriptCode> = "Mani"
+<_font_ScriptCode> = "Maya"
+<_font_ScriptCode> = "Mend"
+<_font_ScriptCode> = "Merc"
+<_font_ScriptCode> = "Mero"
+<_font_ScriptCode> = "Mlym"
+<_font_ScriptCode> = "Moon"
+<_font_ScriptCode> = "Mong"
+<_font_ScriptCode> = "Mroo"
+<_font_ScriptCode> = "Mtei"
+<_font_ScriptCode> = "Mymr"
+<_font_ScriptCode> = "Narb"
+<_font_ScriptCode> = "Nbat"
+<_font_ScriptCode> = "Nkgb"
+<_font_ScriptCode> = "Nkoo"
+<_font_ScriptCode> = "Nshu"
+<_font_ScriptCode> = "Ogam"
+<_font_ScriptCode> = "Olck"
+<_font_ScriptCode> = "Orkh"
+<_font_ScriptCode> = "Orya"
+<_font_ScriptCode> = "Osma"
+<_font_ScriptCode> = "Palm"
+<_font_ScriptCode> = "Perm"
+<_font_ScriptCode> = "Phag"
+<_font_ScriptCode> = "Phli"
+<_font_ScriptCode> = "Phlp"
+<_font_ScriptCode> = "Phlv"
+<_font_ScriptCode> = "Phnx"
+<_font_ScriptCode> = "Plrd"
+<_font_ScriptCode> = "Prti"
+<_font_ScriptCode> = "Rjng"
+<_font_ScriptCode> = "Roro"
+<_font_ScriptCode> = "Runr"
+<_font_ScriptCode> = "Samr"
+<_font_ScriptCode> = "Sara"
+<_font_ScriptCode> = "Sarb"
+<_font_ScriptCode> = "Saur"
+<_font_ScriptCode> = "Sgnw"
+<_font_ScriptCode> = "Shaw"
+<_font_ScriptCode> = "Shrd"
+<_font_ScriptCode> = "Sind"
+<_font_ScriptCode> = "Sinh"
+<_font_ScriptCode> = "Sora"
+<_font_ScriptCode> = "Sund"
+<_font_ScriptCode> = "Sylo"
+<_font_ScriptCode> = "Syrc"
+<_font_ScriptCode> = "Syre"
+<_font_ScriptCode> = "Syrj"
+<_font_ScriptCode> = "Syrn"
+<_font_ScriptCode> = "Tagb"
+<_font_ScriptCode> = "Takr"
+<_font_ScriptCode> = "Tale"
+<_font_ScriptCode> = "Talu"
+<_font_ScriptCode> = "Taml"
+<_font_ScriptCode> = "Tang"
+<_font_ScriptCode> = "Tavt"
+<_font_ScriptCode> = "Telu"
+<_font_ScriptCode> = "Teng"
+<_font_ScriptCode> = "Tfng"
+<_font_ScriptCode> = "Tglg"
+<_font_ScriptCode> = "Thaa"
+<_font_ScriptCode> = "Thai"
+<_font_ScriptCode> = "Tibt"
+<_font_ScriptCode> = "Tirh"
+<_font_ScriptCode> = "Ugar"
+<_font_ScriptCode> = "Vaii"
+<_font_ScriptCode> = "Visp"
+<_font_ScriptCode> = "Wara"
+<_font_ScriptCode> = "Wole"
+<_font_ScriptCode> = "Xpeo"
+<_font_ScriptCode> = "Xsux"
+<_font_ScriptCode> = "Yiii"
+<_font_ScriptCode> = "Zmth"
+<_font_ScriptCode> = "Zsym"
+<_font_ScriptCode> = "Zyyy"
+
+
+<_ListenerFuncName> = func_<string min=97 max=122>
+<_ListenerFuncName_param> = <_tab_p>
+<_ListenerFuncName_param> = <_window_p>
+<_ListenerFuncName_param> = <_session_p>
+<_ListenerFuncName_param> = <_extensionInfo_p>
+<_tab> = <_tab_p>
+<_window> = <_window_p>
+<_session> = <_session_p>
+
+<_callback_param_temp> = <_ListenerFuncName_param>
+<new _ListenerFunc_p0> = function <_ListenerFuncName>(){<cb>}
+<new _ListenerFunc_p1> = function <_ListenerFuncName>(<_ListenerFuncName_param>){<cb>}
+<new _ListenerFunc_p2> = function <_ListenerFuncName>(<_ListenerFuncName_param>, <_ListenerFuncName_param>){<cb>}
+<new _ListenerFunc_p3> = function <_ListenerFuncName>(<_ListenerFuncName_param>, <_ListenerFuncName_param>, <_ListenerFuncName_param>){<cb>}
+
+
+

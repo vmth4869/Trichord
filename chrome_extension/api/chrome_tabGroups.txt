@@ -1,0 +1,121 @@
+
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+<new _tabgroup> = (await chrome_tabGroups_get(<_tabgroupId>))
+<new _tabgroup> = (await chrome_tabGroups_move(<_tabgroupId>, {windowId:<_windowId>, index:<_index>}))
+<new _tabgroupId> = (await chrome_tabGroups_move(<_tabgroupId>, {windowId:<_windowId>, index:<_index>})).id
+chrome.tabGroups.update(<_tabgroupId>, function(){<cb>})
+chrome.tabGroups.update(<_tabgroupId>, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>, color:"red"}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>, color:"red", title:<_name>}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>, title:<_name>}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.move(<_tabgroupId>, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.move(<_tabgroupId>, {index:<_index>}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.move(<_tabgroupId>, {windowId:<_windowId>, index:<_index>}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.move(<_tabgroupId>, {windowId:<_windowId>}, function(<_tabgroupId>){<cb>})
+chrome.tabGroups.get(<_tabgroupId>)
+chrome.tabGroups.get(<_tabgroupId>)
+
+<new _tabgroupId> = (await chrome_tabs_group({tabIds:<_tabId>}))
+<new _tabgroupId> = (await chrome_tabs_group({tabIds:<_tabId>, groupId:<_tabgroupId>}))
+<new _tabgroupId> = (await chrome_tabs_group({tabIds:<_tabId>, createProperties:{windowId:<_windowId>}}))
+<new _tabgroupId> = (await chrome_tabs_group({tabIds:<_tabId_list>}))
+<new _tabgroupId> = (await chrome_tabs_group({tabIds:<_tabId_list>, groupId:<_tabgroupId>}))
+<new _tabgroupId> = (await chrome_tabs_group({tabIds:<_tabId_list>, createProperties:{windowId:<_windowId>}}))
+chrome.tabs.group({tabIds:<_tabId>})
+chrome.tabs.group({tabIds:<_tabId>}, function(<_tabgroupId>){<cb>})
+chrome.tabs.group({tabIds:<_tabId>, groupId:<_tabgroupId>})
+chrome.tabs.group({tabIds:<_tabId>, groupId:<_tabgroupId>}, function(<_tabgroupId>){<cb>})
+chrome.tabs.group({tabIds:<_tabId>, createProperties:{windowId:<_windowId>}})
+chrome.tabs.group({tabIds:<_tabId>, createProperties:{windowId:<_windowId>}}, function(<_tabgroupId>){<cb>})
+chrome.tabs.group({tabIds:<_tabId_list>})
+chrome.tabs.group({tabIds:<_tabId_list>}, function(<_tabgroupId>){<cb>})
+chrome.tabs.group({tabIds:<_tabId_list>, groupId:<_tabgroupId>})
+chrome.tabs.group({tabIds:<_tabId_list>, groupId:<_tabgroupId>}, function(<_tabgroupId>){<cb>})
+chrome.tabs.group({tabIds:<_tabId_list>, createProperties:{windowId:<_windowId>}})
+chrome.tabs.group({tabIds:<_tabId_list>, createProperties:{windowId:<_windowId>}}, function(<_tabgroupId>){<cb>})
+chrome.tabs.ungroup(<_tabId>)
+chrome.tabs.ungroup(<_tabId>, function(<_tabgroupId>){<cb>})
+chrome.tabs.ungroup(<_tabId_list>)
+chrome.tabs.ungroup(<_tabId_list>, function(<_tabgroupId>){<cb>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>})
+chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+
+<_tabgroup>.collapsed = <_bool>
+<_tabgroup>.color = <_color>
+<_tabgroup>.id = <_tabgroupId>
+<_tabgroup>.shared = <_bool>
+<_tabgroup>.title = "<string min=97 max=122>"
+<_tabgroup>.windowId = <_windowId>
+
+<_tab>.groupId = <_tabgroupId>
+
+chrome.windows.remove(<_windowId>, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+
+
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>)
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>, function(){<cb>})
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>, color:"red"}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>, color:"red", title:<_name>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.update(<_tabgroupId>, {collapsed:<_bool>, title:<_name>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.move(<_tabgroupId>)
+<callback_api> = chrome.tabGroups.move(<_tabgroupId>, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.move(<_tabgroupId>, {index:<_index>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.move(<_tabgroupId>, {windowId:<_windowId>, index:<_index>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.move(<_tabgroupId>, {windowId:<_windowId>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabGroups.get(<_tabgroupId>)
+<callback_api> = chrome.tabGroups.get(<_tabgroupId>)
+<callback_api> = chrome.tabs.group({tabIds:<_tabId>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId>, groupId:<_tabgroupId>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId>, groupId:<_tabgroupId>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId>, createProperties:{windowId:<_windowId>}})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId>, createProperties:{windowId:<_windowId>}}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId_list>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId_list>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId_list>, groupId:<_tabgroupId>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId_list>, groupId:<_tabgroupId>}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId_list>, createProperties:{windowId:<_windowId>}})
+<callback_api> = chrome.tabs.group({tabIds:<_tabId_list>, createProperties:{windowId:<_windowId>}}, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.ungroup(<_tabId>)
+<callback_api> = chrome.tabs.ungroup(<_tabId>, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.ungroup(<_tabId_list>)
+<callback_api> = chrome.tabs.ungroup(<_tabId_list>, function(<_tabgroupId>){<cb>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>})
+<callback_api> = chrome.tabs.create({windowId:<_windowId>, index:<_index>, url:<_url>, active:<_bool>, selected:<_bool>, pinned:<_bool>, openerTabId:<_tabId>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.duplicate(<_tabId>, function(<_tab_p>){<cb>})
+
+
+<callback_api> = <_tabgroup>.collapsed = <_bool>
+<callback_api> = <_tabgroup>.color = <_color>
+<callback_api> = <_tabgroup>.id = <_tabgroupId>
+<callback_api> = <_tabgroup>.shared = <_bool>
+<callback_api> = <_tabgroup>.title = "<string min=97 max=122>"
+<callback_api> = <_tabgroup>.windowId = <_windowId>
+
+<callback_api> = <_tab>.groupId = <_tabgroupId>
+
+<callback_api> = chrome.windows.remove(<_windowId>, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+

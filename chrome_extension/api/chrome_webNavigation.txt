@@ -1,0 +1,111 @@
+<api_call> = <lines count=1>
+<cb> = <callback_apis>
+
+!lineguard try { <line> } catch(e) {}
+
+#!max_recursion 50
+
+!include ./ext_var.txt
+
+!begin lines
+
+chrome.webNavigation.onBeforeNavigate.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onCommitted.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onDOMContentLoaded.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onCompleted.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onErrorOccurred.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onCreatedNavigationTarget.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onReferenceFragmentUpdated.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onTabReplaced.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onTabReplaced.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onTabReplaced.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onHistoryStateUpdated.addListener(<_ListenerFunc_p1>)
+chrome.webNavigation.onBeforeNavigate.dispatch()
+chrome.webNavigation.onCommitted.dispatch()
+chrome.webNavigation.onDOMContentLoaded.dispatch()
+chrome.webNavigation.onCompleted.dispatch()
+chrome.webNavigation.onErrorOccurred.dispatch()
+chrome.webNavigation.onCreatedNavigationTarget.dispatch()
+chrome.webNavigation.onReferenceFragmentUpdated.dispatch()
+chrome.webNavigation.onTabReplaced.dispatch()
+chrome.webNavigation.onTabReplaced.dispatch()
+chrome.webNavigation.onTabReplaced.dispatch()
+chrome.webNavigation.onHistoryStateUpdated.dispatch()
+#chrome.webNavigation.onBeforeNavigate.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onCommitted.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onDOMContentLoaded.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onCompleted.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onErrorOccurred.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onCreatedNavigationTarget.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onReferenceFragmentUpdated.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onTabReplaced.removeListener(<_ListenerFunc_p1>)
+#chrome.webNavigation.onHistoryStateUpdated.removeListener(<_ListenerFunc_p1>)
+
+
+await chrome_webNavigation_getFrame({tabId:<_tabId>, processId:<_processId>, frameId:<_frameId>})
+await chrome_webNavigation_getFrame({tabId:<_tabId>, processId:<_processId>, frameId:<_frameId>})
+await chrome_webNavigation_getAllFrames({tabId:<_tabId>})
+await chrome_webNavigation_getAllFrames({tabId:<_tabId>})
+chrome.webNavigation.getFrame({tabId:<_tabId>, processId:<_processId>, frameId:<_frameId>}, function(<_callback_param_temp>){<cb>})
+chrome.webNavigation.getFrame({tabId:<_tabId>, processId:<_processId>, frameId:<_frameId>}, function(<_callback_param_temp>){<cb>})
+chrome.webNavigation.getAllFrames({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+chrome.webNavigation.getAllFrames({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+
+chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+chrome.tabs.onUpdated.dispatch()
+chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
+
+!end lines
+
+<callback_apis p=0.8> = <callback_api>;
+<callback_apis p=0.1> = ;
+<callback_apis p=0.1> = <callback_api>;<callback_apis>;
+
+<callback_api> = chrome.webNavigation.getFrame({tabId:<_tabId>, processId:<_processId>, frameId:<_frameId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.webNavigation.getFrame({tabId:<_tabId>, processId:<_processId>, frameId:<_frameId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.webNavigation.getAllFrames({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+<callback_api> = chrome.webNavigation.getAllFrames({tabId:<_tabId>}, function(<_callback_param_temp>){<cb>})
+
+<callback_api> = chrome.webNavigation.onBeforeNavigate.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onCommitted.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onDOMContentLoaded.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onCompleted.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onErrorOccurred.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onCreatedNavigationTarget.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onReferenceFragmentUpdated.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onTabReplaced.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onTabReplaced.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onTabReplaced.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onHistoryStateUpdated.addListener(<_ListenerFunc_p1>)
+<callback_api> = chrome.webNavigation.onBeforeNavigate.dispatch()
+<callback_api> = chrome.webNavigation.onCommitted.dispatch()
+<callback_api> = chrome.webNavigation.onDOMContentLoaded.dispatch()
+<callback_api> = chrome.webNavigation.onCompleted.dispatch()
+<callback_api> = chrome.webNavigation.onErrorOccurred.dispatch()
+<callback_api> = chrome.webNavigation.onCreatedNavigationTarget.dispatch()
+<callback_api> = chrome.webNavigation.onReferenceFragmentUpdated.dispatch()
+<callback_api> = chrome.webNavigation.onTabReplaced.dispatch()
+<callback_api> = chrome.webNavigation.onTabReplaced.dispatch()
+<callback_api> = chrome.webNavigation.onTabReplaced.dispatch()
+<callback_api> = chrome.webNavigation.onHistoryStateUpdated.dispatch()
+#<callback_api> = chrome.webNavigation.onBeforeNavigate.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onCommitted.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onDOMContentLoaded.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onCompleted.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onErrorOccurred.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onCreatedNavigationTarget.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onReferenceFragmentUpdated.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onTabReplaced.removeListener(<_ListenerFunc_p1>)
+#<callback_api> = chrome.webNavigation.onHistoryStateUpdated.removeListener(<_ListenerFunc_p1>)
+
+<callback_api> = chrome.tabs.onUpdated.addListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.onUpdated.dispatch()
+<callback_api> = chrome.tabs.onUpdated.removeListener(<_ListenerFunc_p2>)
+<callback_api> = chrome.tabs.get(<_tabId>, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.query({active:<_bool>, pinned:<_bool>, audible:<_bool>, muted:<_bool>, highlighted:<_bool>, discarded:<_bool>, autoDiscardable:<_bool>, currentWindow:<_bool>, lastFocusedWindow:<_bool>, status:<_TabStatus>, title:<_name>, url:<_urlPattern>, windowId:<_windowId>, windowType:<_windowType>, index:<_index>}, function(<_tab_p>){<cb>})
+<callback_api> = chrome.tabs.reload(<_tabId>, {bypassCache:<_bool>}, function(){<cb>})
+<callback_api> = chrome.processes.terminate(<_processId>, function(<_callback_param_temp>){<cb>})
