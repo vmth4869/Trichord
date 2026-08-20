@@ -1,0 +1,176 @@
+
+
+<browser_others> = <lines count=30>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+for(i=0; i <for_int>; ++i) {<line>}
+for(i=0; i <for_int>; i++){<line>}
+for(i=0; i <for_int>; i++){<line>}
+
+
+
+
+browser.history.onVisited.addListener(<my_ListenerFunc_p1>)
+browser.history.onVisitRemoved.addListener(<my_ListenerFunc_p1>)
+browser.history.onVisited.dispatch()
+browser.history.onVisitRemoved.dispatch()
+
+
+
+browser.alarms.onAlarm.addListener(<my_ListenerFunc_p0>)
+browser.alarms.onAlarm.addListener(<my_ListenerFunc_p0>)
+browser.alarms.onAlarm.dispatch()
+browser.alarms.onAlarm.removeListener(<my_ListenerFunc_p0>)
+
+
+
+
+
+await browser.alarms.create(<my_name>, {when:<my_int>, delayInMinutes:<my_int>, periodInMinutes:<my_int>})
+await browser.alarms.get(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+await browser.alarms.getAll(function(<my_callback_param_temp>){<my_callback>})
+await browser.alarms.clear(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+await browser.alarms.clearAll(function(<my_callback_param_temp>){<my_callback>})
+
+
+await browser.history.search({text:<my_str>, startTime:<my_int>, endTime:<my_int>, maxResults:<my_int>}, function(<my_callback_param_temp>){<my_callback>})
+await browser.history.getVisits({url:<my_url>}, function(<my_callback_param_temp>){<my_callback>})
+await browser.history.addUrl({url:<my_url>}, function(){<my_callback>})
+await browser.history.deleteUrl({url:<my_url>}, function(){<my_callback>})
+await browser.history.deleteRange({startTime:<my_int>, endTime:<my_int>}, function(){<my_callback>})
+await browser.history.deleteAll(function(){<my_callback>})
+
+
+await browser.idle.queryState(<my_int>, function(<my_callback_param_temp>){<my_callback>})
+await browser.idle.setDetectionInterval(<my_int>)
+await browser.idle.getAutoLockDelay(function(<my_callback_param_temp>){<my_callback>})
+
+await browser.notifications.create(<my_ID>, {type:<my_TemplateType>, iconUrl:<my_url>, appIconMaskUrl:<my_url>, title:<my_str>, message:<my_str>, contextMessage:<my_str>, priority:<my_int>, eventTime:<my_int>, progress:<my_int>, isClickable:<my_bool>, requireInteraction:<my_bool>}, function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.create(<my_ID>, {}, function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.create({}, function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.update(<my_ID>, {type:<my_TemplateType>, iconUrl:<my_url>, appIconMaskUrl:<my_url>, title:<my_str>, message:<my_str>, contextMessage:<my_str>, priority:<my_int>, eventTime:<my_int>, progress:<my_int>, isClickable:<my_bool>, requireInteraction:<my_bool>}, function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.update(<my_ID>, {}, function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.clear(<my_ID>, function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.getAll(function(<my_callback_param_temp>){<my_callback>})
+await browser.notifications.getPermissionLevel(function(<my_callback_param_temp>){<my_callback>})
+
+
+await browser.omnibox.setDefaultSuggestion({description:<my_str>})
+
+
+await browser.topSites.get(function(<my_callback_param_temp>){<my_callback>})
+
+
+await browser.tts.stop()
+await browser.tts.pause()
+await browser.tts.resume()
+await browser.tts.isSpeaking(function(<my_callback_param_temp>){<my_callback>})
+await browser.tts.getVoices(function(<my_callback_param_temp>){<my_callback>})
+
+
+
+
+
+
+
+
+await browser.search.query({text:<my_str>, disposition:<my_disposition>, tabId:<my_tabId>}, function(){<my_callback>})
+await browser.search.query({text:<my_str>, disposition:<my_disposition>}, function(){<my_callback>})
+await browser.search.query({text:<my_str>, tabId:<my_tabId>}, function(){<my_callback>})
+await browser.search.query({text:<my_str>}, function(){<my_callback>})
+await browser.search.query({text:<my_str>, disposition:<my_disposition>, tabId:<my_tabId>})
+
+
+
+
+
+browser.alarms.create(<my_name>, {when:<my_int>, delayInMinutes:<my_int>, periodInMinutes:<my_int>})
+browser.alarms.get(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.getAll(function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.clear(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.clearAll(function(<my_callback_param_temp>){<my_callback>})
+
+
+browser.history.search({text:<my_str>, startTime:<my_int>, endTime:<my_int>, maxResults:<my_int>}, function(<my_callback_param_temp>){<my_callback>})
+browser.history.getVisits({url:<my_url>}, function(<my_callback_param_temp>){<my_callback>})
+browser.history.addUrl({url:<my_url>}, function(){<my_callback>})
+browser.history.deleteUrl({url:<my_url>}, function(){<my_callback>})
+browser.history.deleteRange({startTime:<my_int>, endTime:<my_int>}, function(){<my_callback>})
+browser.history.deleteAll(function(){<my_callback>})
+
+browser.idle.queryState(<my_int>, function(<my_callback_param_temp>){<my_callback>})
+browser.idle.setDetectionInterval(<my_int>)
+browser.idle.getAutoLockDelay(function(<my_callback_param_temp>){<my_callback>})
+
+
+browser.notifications.create(<my_ID>, {type:<my_TemplateType>, iconUrl:<my_url>, appIconMaskUrl:<my_url>, title:<my_str>, message:<my_str>, contextMessage:<my_str>, priority:<my_int>, eventTime:<my_int>, progress:<my_int>, isClickable:<my_bool>, requireInteraction:<my_bool>}, function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.create(<my_ID>, {}, function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.create({}, function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.update(<my_ID>, {type:<my_TemplateType>, iconUrl:<my_url>, appIconMaskUrl:<my_url>, title:<my_str>, message:<my_str>, contextMessage:<my_str>, priority:<my_int>, eventTime:<my_int>, progress:<my_int>, isClickable:<my_bool>, requireInteraction:<my_bool>}, function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.update(<my_ID>, {}, function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.clear(<my_ID>, function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.getAll(function(<my_callback_param_temp>){<my_callback>})
+browser.notifications.getPermissionLevel(function(<my_callback_param_temp>){<my_callback>})
+
+browser.omnibox.setDefaultSuggestion({description:<my_str>})
+
+
+browser.topSites.get(function(<my_callback_param_temp>){<my_callback>})
+
+browser.tts.stop()
+browser.tts.pause()
+browser.tts.resume()
+browser.tts.isSpeaking(function(<my_callback_param_temp>){<my_callback>})
+browser.tts.getVoices(function(<my_callback_param_temp>){<my_callback>})
+
+
+
+
+
+
+
+
+browser.search.query({text:<my_str>, disposition:<my_disposition>, tabId:<my_tabId>}, function(){<my_callback>})
+browser.search.query({text:<my_str>, disposition:<my_disposition>}, function(){<my_callback>})
+browser.search.query({text:<my_str>, tabId:<my_tabId>}, function(){<my_callback>})
+browser.search.query({text:<my_str>}, function(){<my_callback>})
+browser.search.query({text:<my_str>, disposition:<my_disposition>, tabId:<my_tabId>})
+
+
+
+browser.storage.sync.set(<my_json>, function(){<my_callback>})
+browser.storage.sync.get([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.sync.remove([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.sync.clear()
+browser.storage.local.set(<my_json>, function(){<my_callback>})
+browser.storage.local.get([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.local.remove([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.local.clear()
+
+
+browser.storage.sync.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.sync.get(['color'], function(result){<my_callback>})
+browser.storage.sync.remove(['color'], function(result){<my_callback>})
+browser.storage.sync.clear()
+browser.storage.local.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.local.get(['color'], function(result){<my_callback>})
+browser.storage.local.remove(['color'], function(result){<my_callback>})
+browser.storage.local.clear()
+
+browser.storage.sync.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.sync.get(['color'], function(result){<my_callback>})
+browser.storage.sync.remove(['color'], function(result){<my_callback>})
+browser.storage.sync.clear()
+browser.storage.local.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.local.get(['color'], function(result){<my_callback>})
+browser.storage.local.remove(['color'], function(result){<my_callback>})
+browser.storage.local.clear()
+
+
+
+!end lines

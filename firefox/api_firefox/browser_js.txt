@@ -1,0 +1,34 @@
+<browser_js> = <lines count=20>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+<proto_func> = constructor
+<proto_func> = toString
+<proto_func> = toString
+<proto_func> = valueOf
+<proto_func> = hasOwnProperty
+<proto_func> = __defineGetter__
+
+!begin lines
+
+
+
+
+for (i=0; i <for_int>; ++i) {var a = new String();}
+for (i=0; i <for_int>; ++i) {var a = new String();}
+for (i=0; i <for_int>; ++i) {var a = new String();}
+for(i=0; i <for_int>; i++){new ArrayBuffer(0x1000000);}
+for(i=0; i <for_int>; i++){new ArrayBuffer(0x1000000);}
+for(i=0; i <for_int>; i++){new ArrayBuffer(0x1000000);}
+
+for(i=0; i < 0x10; i++){<my_callback>}
+for(i=0; i < 0x10; i++){<my_callback>}
+for(i=0; i < 0x100; i++){<my_callback>}
+for(i=0; i < 0x100; i++){<my_callback>}
+
+
+
+
+
+!end lines

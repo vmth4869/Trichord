@@ -1,0 +1,472 @@
+
+
+<interestingint> = 32768
+<interestingint> = 65535
+<interestingint> = 65536
+<interestingint> = 4294967295
+<interestingint> = 2147483648
+<interestingint> = -2147483648
+<interestingint> = -32769
+
+<fuzzint> = 0
+<fuzzint> = 0
+<fuzzint> = 1
+<fuzzint> = 1
+<fuzzint> = -1
+<fuzzint> = <int min=0 max=10>
+<fuzzint> = <int min=0 max=100>
+
+<for_sign> = <
+<for_int p=0.4> = <for_sign> <int min=1 max=20>
+<for_int> = <for_sign> <int min=100 max=1000>
+<for_int> = <for_sign> 10000
+<for_int> = <for_sign> 65535
+
+<my_color> = "<hash>3aa757"
+<my_color> = "grey"
+<my_color> = "blue"
+<my_color> = "red"
+<my_color> = "yellow"
+<my_color> = "green"
+<my_color> = "pink"
+<my_color> = "purple"
+<my_color> = "cyan"
+<my_color> = "orange"
+
+<my_bool p=0.6> = true
+<my_bool p=0.4> = false
+<my_int p=0.6> = <fuzzint>
+<my_int p=0.4> = <interestingint>
+<my_index p=0.7> = <int min=-2 max=10>
+<my_index p=0.2> = <interestingint>
+<my_index p=0.1> = <fuzzint>
+<my_array_index p=0.4> = <int min=0 max=5>
+<my_array_index p=0.3> = <int min=0 max=10>
+<my_array_index p=0.2> = <int min=0 max=20>
+<my_array_index p=0.1> = <int min=0 max=50>
+
+<my_ID> = "<my_index>"
+<my_IDs_list> = [<my_IDs>]
+<my_IDs> = <my_IDs>,<my_ID>
+<my_IDs nonrecursive> = <my_ID>
+
+<my_name p=0.6> = <my_extensionInfo_name>
+<my_name> = "aaa"
+<my_name> = "bbb"
+<my_name> = "ccc"
+<my_str> = "<string min=97 max=122>"
+<my_str p=0.6> = <my_name>
+
+
+<my_contextType> = "all"
+<my_contextType> = "all"
+<my_contextType> = "page"
+<my_contextType> = "frame"
+<my_contextType> = "selection"
+<my_contextType> = "link"
+<my_contextType> = "editable"
+<my_contextType> = "image"
+<my_contextType> = "video"
+<my_contextType> = "audio"
+<my_contextType> = "launcher"
+<my_contextType> = "browser_action"
+<my_contextType> = "page_action"
+<my_contextType> = "action"
+<my_contextTypes_list> = [<my_contextTypes>]
+<my_contextTypes> = <my_contextTypes>,<my_contextType>
+<my_contextTypes nonrecursive> = <my_contextType>
+
+<my_url> = browser.extension.getURL("js/3.html")
+<my_url> = browser.extension.getURL("js/1.html")
+<my_url> = 'http://www.google.com'
+<my_url> = 'browser://newtab'
+
+<my_options> = "openFile"
+<my_options> = "openWritableFile"
+<my_options> = "saveFile"
+<my_options> = "openDirectory"
+
+<my_urlPattern> = "https://*/*"
+<my_urlPattern> = "http://*"
+<my_urlPattern> = "https://*/foo*"
+<my_urlPattern> = "https://*.google.com/foo*bar"
+<my_urlPattern> = "http://127.0.0.1/*"
+<my_urlPattern> = "http://127.0.0.1/"
+<my_urlPattern> = "http://localhost/*"
+
+
+
+
+<my_windowType> = "normal"
+<my_windowType> = "popup"
+<my_windowType> = "panel"
+<my_windowType> = "app"
+<my_windowType> = "devtools"
+<my_windowTypes_list> = [<my_windowTypes>]
+<my_windowTypes> = <my_windowTypes>,<my_windowType>
+<my_windowTypes nonrecursive> = <my_windowType>
+
+
+<my_window> = <my_window_list>[<my_array_index>]
+<my_window> = <my_session_list>[<my_array_index>].window
+<my_tab> = <my_session_list>[<my_array_index>].tab
+
+
+<my_TabStatus> = "unloaded"
+<my_TabStatus> = "loading"
+<my_TabStatus> = "complete"
+<my_TabStatus> = "complete"
+
+<my_tabCapture_status> = "pending"
+<my_tabCapture_status> = "active"
+<my_tabCapture_status> = "stopped"
+<my_tabCapture_status> = "error"
+ 
+<my_runAt> = "document_start"
+<my_runAt> = "document_end"
+<my_runAt> = "document_idle"
+
+
+<my_tabId> = <my_tab>.id ## getTabId
+<my_tabId_list> = [<my_tabIds>]  ## getTabIdorList
+<my_tabIds> = <my_tabIds>,<my_tabId>
+<my_tabIds nonrecursive> = <my_tabId>
+
+
+<my_sessionId> = <my_tab>.sessionId ## getSessionId
+<my_session> = <my_session_list>[<my_array_index>]
+
+
+<my_extensionInfo_id> = <my_extensionInfo>.id ##getExtensionId
+<my_extensionInfo_id> = <my_extensionInfo_list>[<my_array_index>].id
+<my_extensionInfo_name> = <my_extensionInfo>.name ##getExtensionName
+<my_extensionInfo_name> = <my_extensionInfo_list>[<my_array_index>].name
+
+<my_code> = <my_ListenerFunc_p0>
+
+<my_jsonkey> = "<string min=97 max=122>"
+<my_jsonvalue> = <my_any>
+<my_json> = {<my_jsonkey>:<my_json>,<my_jsonkey>:<my_jsonvalue>}
+<my_json nonrecursive> = {<my_jsonkey>:<my_jsonvalue>}
+
+<my_any> = <my_tabId>
+<my_any> = <my_url>
+<my_any> = <my_int>
+<my_any> = <my_bool>
+<my_any> = <my_window>.id
+<my_any> = <my_IDs_list>
+<my_any> = "<string min=97 max=122>"
+<my_any> = <my_json>
+<my_any> = <my_ListenerFuncName_param>
+
+<my_CreateType> = "normal"
+<my_CreateType> = "popup"
+<my_CreateType> = "panel"
+
+<my_WindowState> = "normal"
+<my_WindowState> = "minimized"
+<my_WindowState> = "maximized"
+<my_WindowState> = "fullscreen"
+<my_WindowState> = "locked-fullscreen"
+
+
+
+<my_disposition> = "CURRENT_TAB"
+<my_disposition> = "NEW_TAB"
+<my_disposition> = "NEW_WINDOW"
+
+
+
+!begin function savesize
+  context['size'] = ret_val
+!end function
+
+!begin function createbody
+  n = int(context['size'])
+  ret_val = 'a' * n
+!end function
+
+<header> = Size: <int min=1 max=2 beforeoutput=savesize>
+<body> = <call function=createbody>
+
+<my_frameId> = <my_frame_array>[<my_array_index>].frameId
+
+
+<my_processId> = <my_frame_array>[<int min=0 max=20>].processId
+
+<my_getDesktopCaptureSourceType> = "screen"
+<my_getDesktopCaptureSourceType> = "window"
+<my_getDesktopCaptureSourceType> = "tab"
+<my_getDesktopCaptureSourceType> = "audio"
+<my_getDesktopCaptureSourceTypes_list> = [<my_getDesktopCaptureSourceTypes>]
+<my_getDesktopCaptureSourceTypes> = <my_getDesktopCaptureSourceTypes>,<my_getDesktopCaptureSourceType>
+<my_getDesktopCaptureSourceTypes nonrecursive> = <my_getDesktopCaptureSourceType>
+
+
+<my_buffer> = new ArrayBuffer(<my_int>)
+
+
+<my_ZoomSettingsMode> = "automatic"
+<my_ZoomSettingsMode> = "manual"
+<my_ZoomSettingsMode> = "disabled"
+
+<my_ZoomSettingsScope> = "per-origin"
+<my_ZoomSettingsScope> = "per-tab"
+
+<my_LaunchType> = "OPEN_AS_REGULAR_TAB"
+<my_LaunchType> = "OPEN_AS_PINNED_TAB"
+<my_LaunchType> = "OPEN_AS_WINDOW"
+<my_LaunchType> = "OPEN_FULL_SCREEN"
+
+<my_path> = ".."
+<my_path> = "./"
+<my_path> = "./js/"
+
+<my_ViewType> = "tab"
+<my_ViewType> = "notification"
+<my_ViewType> = "popup"
+
+<my_filter> = "noTreeChanges"
+<my_filter> = "liveRegionTreeChanges"
+<my_filter> = "textMarkerChanges"
+<my_filter> = "allTreeChanges"
+
+<my_ItemType> = "normal"
+<my_ItemType> = "checkbox"
+<my_ItemType> = "radio"
+<my_ItemType> = "separator"
+
+<my_TemplateType> = "basic"
+<my_TemplateType> = "image"
+<my_TemplateType> = "list"
+<my_TemplateType> = "progress"
+
+<my_AssistiveWindowButton> = "undo"
+<my_AssistiveWindowButton> = "addToDictionary"
+<my_AssistiveWindowType> = "undo"
+<my_AutoCapitalizeType> = "characters"
+<my_AutoCapitalizeType> = "words"
+<my_AutoCapitalizeType> = "sentences"
+<my_InputContextType> = "text"
+<my_InputContextType> = "search"
+<my_InputContextType> = "tel"
+<my_InputContextType> = "url"
+<my_InputContextType> = "email"
+<my_InputContextType> = "number"
+<my_InputContextType> = "password"
+<my_InputContextType> = "null"
+<my_KeyboardEventType> = "keyup"
+<my_KeyboardEventType> = "keydown"
+<my_MenuItemStyle> = "check"
+<my_MenuItemStyle> = "radio"
+<my_MenuItemStyle> = "separator"
+<my_MouseButton> = "left"
+<my_MouseButton> = "middle"
+<my_MouseButton> = "right"
+<my_ScreenType> = "normal"
+<my_ScreenType> = "login"
+<my_ScreenType> = "lock"
+<my_ScreenType> = "secondary-login"
+<my_UnderlineStyle> = "underline"
+<my_UnderlineStyle> = "doubleUnderline"
+<my_UnderlineStyle> = "noUnderline"
+<my_WindowPosition> = "cursor"
+<my_WindowPosition> = "composition"
+
+
+<my_RequestInfo> = {tabIds:<my_tabId>, guestProcessId:<my_processId>, targetWebview: <my_bool>}
+<my_securityOrigin> = ""
+<my_MetaDataEntry> = {key:<my_str>, value:<my_any>}
+<my_logId> = <my_index> ## should be return from StartEventLogging()
+
+<contextMenusid> = <my_name>
+<contextMenusid> = <my_index>
+
+
+
+
+
+
+
+<my_font_details> = {genericFamily:<my_font_GenericFamily>}
+
+<my_font_GenericFamily> = "standard"
+<my_font_GenericFamily> = "sansserif"
+<my_font_GenericFamily> = "serif"
+<my_font_GenericFamily> = "fixed"
+<my_font_GenericFamily> = "cursive"
+<my_font_GenericFamily> = "fantasy"
+
+<my_font_ScriptCode> = "Afak"
+<my_font_ScriptCode> = "Arab"
+<my_font_ScriptCode> = "Armi"
+<my_font_ScriptCode> = "Armn"
+<my_font_ScriptCode> = "Avst"
+<my_font_ScriptCode> = "Bali"
+<my_font_ScriptCode> = "Bamu"
+<my_font_ScriptCode> = "Bass"
+<my_font_ScriptCode> = "Batk"
+<my_font_ScriptCode> = "Beng"
+<my_font_ScriptCode> = "Blis"
+<my_font_ScriptCode> = "Bopo"
+<my_font_ScriptCode> = "Brah"
+<my_font_ScriptCode> = "Brai"
+<my_font_ScriptCode> = "Bugi"
+<my_font_ScriptCode> = "Buhd"
+<my_font_ScriptCode> = "Cakm"
+<my_font_ScriptCode> = "Cans"
+<my_font_ScriptCode> = "Cari"
+<my_font_ScriptCode> = "Cham"
+<my_font_ScriptCode> = "Cher"
+<my_font_ScriptCode> = "Cirt"
+<my_font_ScriptCode> = "Copt"
+<my_font_ScriptCode> = "Cprt"
+<my_font_ScriptCode> = "Cyrl"
+<my_font_ScriptCode> = "Cyrs"
+<my_font_ScriptCode> = "Deva"
+<my_font_ScriptCode> = "Dsrt"
+<my_font_ScriptCode> = "Dupl"
+<my_font_ScriptCode> = "Egyd"
+<my_font_ScriptCode> = "Egyh"
+<my_font_ScriptCode> = "Egyp"
+<my_font_ScriptCode> = "Elba"
+<my_font_ScriptCode> = "Ethi"
+<my_font_ScriptCode> = "Geor"
+<my_font_ScriptCode> = "Geok"
+<my_font_ScriptCode> = "Glag"
+<my_font_ScriptCode> = "Goth"
+<my_font_ScriptCode> = "Gran"
+<my_font_ScriptCode> = "Grek"
+<my_font_ScriptCode> = "Gujr"
+<my_font_ScriptCode> = "Guru"
+<my_font_ScriptCode> = "Hang"
+<my_font_ScriptCode> = "Hani"
+<my_font_ScriptCode> = "Hano"
+<my_font_ScriptCode> = "Hans"
+<my_font_ScriptCode> = "Hant"
+<my_font_ScriptCode> = "Hebr"
+<my_font_ScriptCode> = "Hluw"
+<my_font_ScriptCode> = "Hmng"
+<my_font_ScriptCode> = "Hung"
+<my_font_ScriptCode> = "Inds"
+<my_font_ScriptCode> = "Ital"
+<my_font_ScriptCode> = "Java"
+<my_font_ScriptCode> = "Jpan"
+<my_font_ScriptCode> = "Jurc"
+<my_font_ScriptCode> = "Kali"
+<my_font_ScriptCode> = "Khar"
+<my_font_ScriptCode> = "Khmr"
+<my_font_ScriptCode> = "Khoj"
+<my_font_ScriptCode> = "Knda"
+<my_font_ScriptCode> = "Kpel"
+<my_font_ScriptCode> = "Kthi"
+<my_font_ScriptCode> = "Lana"
+<my_font_ScriptCode> = "Laoo"
+<my_font_ScriptCode> = "Latf"
+<my_font_ScriptCode> = "Latg"
+<my_font_ScriptCode> = "Latn"
+<my_font_ScriptCode> = "Lepc"
+<my_font_ScriptCode> = "Limb"
+<my_font_ScriptCode> = "Lina"
+<my_font_ScriptCode> = "Linb"
+<my_font_ScriptCode> = "Lisu"
+<my_font_ScriptCode> = "Loma"
+<my_font_ScriptCode> = "Lyci"
+<my_font_ScriptCode> = "Lydi"
+<my_font_ScriptCode> = "Mand"
+<my_font_ScriptCode> = "Mani"
+<my_font_ScriptCode> = "Maya"
+<my_font_ScriptCode> = "Mend"
+<my_font_ScriptCode> = "Merc"
+<my_font_ScriptCode> = "Mero"
+<my_font_ScriptCode> = "Mlym"
+<my_font_ScriptCode> = "Moon"
+<my_font_ScriptCode> = "Mong"
+<my_font_ScriptCode> = "Mroo"
+<my_font_ScriptCode> = "Mtei"
+<my_font_ScriptCode> = "Mymr"
+<my_font_ScriptCode> = "Narb"
+<my_font_ScriptCode> = "Nbat"
+<my_font_ScriptCode> = "Nkgb"
+<my_font_ScriptCode> = "Nkoo"
+<my_font_ScriptCode> = "Nshu"
+<my_font_ScriptCode> = "Ogam"
+<my_font_ScriptCode> = "Olck"
+<my_font_ScriptCode> = "Orkh"
+<my_font_ScriptCode> = "Orya"
+<my_font_ScriptCode> = "Osma"
+<my_font_ScriptCode> = "Palm"
+<my_font_ScriptCode> = "Perm"
+<my_font_ScriptCode> = "Phag"
+<my_font_ScriptCode> = "Phli"
+<my_font_ScriptCode> = "Phlp"
+<my_font_ScriptCode> = "Phlv"
+<my_font_ScriptCode> = "Phnx"
+<my_font_ScriptCode> = "Plrd"
+<my_font_ScriptCode> = "Prti"
+<my_font_ScriptCode> = "Rjng"
+<my_font_ScriptCode> = "Roro"
+<my_font_ScriptCode> = "Runr"
+<my_font_ScriptCode> = "Samr"
+<my_font_ScriptCode> = "Sara"
+<my_font_ScriptCode> = "Sarb"
+<my_font_ScriptCode> = "Saur"
+<my_font_ScriptCode> = "Sgnw"
+<my_font_ScriptCode> = "Shaw"
+<my_font_ScriptCode> = "Shrd"
+<my_font_ScriptCode> = "Sind"
+<my_font_ScriptCode> = "Sinh"
+<my_font_ScriptCode> = "Sora"
+<my_font_ScriptCode> = "Sund"
+<my_font_ScriptCode> = "Sylo"
+<my_font_ScriptCode> = "Syrc"
+<my_font_ScriptCode> = "Syre"
+<my_font_ScriptCode> = "Syrj"
+<my_font_ScriptCode> = "Syrn"
+<my_font_ScriptCode> = "Tagb"
+<my_font_ScriptCode> = "Takr"
+<my_font_ScriptCode> = "Tale"
+<my_font_ScriptCode> = "Talu"
+<my_font_ScriptCode> = "Taml"
+<my_font_ScriptCode> = "Tang"
+<my_font_ScriptCode> = "Tavt"
+<my_font_ScriptCode> = "Telu"
+<my_font_ScriptCode> = "Teng"
+<my_font_ScriptCode> = "Tfng"
+<my_font_ScriptCode> = "Tglg"
+<my_font_ScriptCode> = "Thaa"
+<my_font_ScriptCode> = "Thai"
+<my_font_ScriptCode> = "Tibt"
+<my_font_ScriptCode> = "Tirh"
+<my_font_ScriptCode> = "Ugar"
+<my_font_ScriptCode> = "Vaii"
+<my_font_ScriptCode> = "Visp"
+<my_font_ScriptCode> = "Wara"
+<my_font_ScriptCode> = "Wole"
+<my_font_ScriptCode> = "Xpeo"
+<my_font_ScriptCode> = "Xsux"
+<my_font_ScriptCode> = "Yiii"
+<my_font_ScriptCode> = "Zmth"
+<my_font_ScriptCode> = "Zsym"
+<my_font_ScriptCode> = "Zyyy"
+
+
+<my_ListenerFuncName> = func_<string min=97 max=122>
+<my_ListenerFuncName_param> = <my_tab_p>
+<my_ListenerFuncName_param> = <my_window_p>
+<my_ListenerFuncName_param> = <my_session_p>
+<my_ListenerFuncName_param> = <my_extensionInfo_p>
+<my_tab> = <my_tab_p>
+<my_window> = <my_window_p>
+<my_session> = <my_session_p>
+
+<my_callback_param_temp> = <my_ListenerFuncName_param>
+<new my_ListenerFunc_p0> = function <my_ListenerFuncName>(){<my_callback>}
+<new my_ListenerFunc_p1> = function <my_ListenerFuncName>(<my_ListenerFuncName_param>){<my_callback>}
+<new my_ListenerFunc_p2> = function <my_ListenerFuncName>(<my_ListenerFuncName_param>, <my_ListenerFuncName_param>){<my_callback>}
+<new my_ListenerFunc_p3> = function <my_ListenerFuncName>(<my_ListenerFuncName_param>, <my_ListenerFuncName_param>, <my_ListenerFuncName_param>){<my_callback>}
+
+
+
+
+<all_urls> = "*://*/*"

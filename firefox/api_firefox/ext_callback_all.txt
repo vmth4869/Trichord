@@ -1,0 +1,500 @@
+
+!max_recursion 100
+<sentence> = <ext_api>
+<sentences p=0.2> = <sentences>;
+<sentences p=0.3> = <sentence>;
+<sentences p=0.2> = <sentence>;<sentence>;<sentence>;<sentence>;<sentence>;
+<sentences p=0.3> = <sentence>;<sentence>;<sentence>;
+<ext_callback> = try { <sentences> } catch(e) {}
+
+
+
+
+
+
+!max_recursion 100
+
+
+
+
+<ext_api> = browser.tabs.onCreated.dispatch()
+<ext_api> = browser.tabs.onUpdated.dispatch()
+<ext_api> = browser.tabs.onMoved.dispatch()
+<ext_api> = browser.tabs.onActiveChanged.dispatch()
+<ext_api> = browser.tabs.onActivated.dispatch()
+<ext_api> = browser.tabs.onHighlightChanged.dispatch()
+<ext_api> = browser.tabs.onHighlighted.dispatch()
+<ext_api> = browser.tabs.onDetached.dispatch()
+<ext_api> = browser.tabs.onAttached.dispatch()
+<ext_api> = browser.tabs.onRemoved.dispatch()
+<ext_api> = browser.tabs.onReplaced.dispatch()
+<ext_api> = browser.tabs.onZoomChange.dispatch()
+<ext_api> = browser.tabs.onSelectionChanged.dispatch()
+
+
+
+<ext_api> = browser.windows.onCreated.dispatch()
+<ext_api> = browser.windows.onRemoved.dispatch()
+<ext_api> = browser.windows.onFocusChanged.dispatch()
+<ext_api> = browser.windows.onBoundsChanged.dispatch()
+
+
+<ext_api> = browser.extension.onRequest.dispatch()
+<ext_api> = browser.extension.onRequestExternal.dispatch()
+<ext_api> = browser.extension.onConnect.dispatch()
+<ext_api> = browser.extension.onConnectExternal.dispatch()
+<ext_api> = browser.extension.onMessage.dispatch()
+<ext_api> = browser.extension.onMessageExternal.dispatch()
+
+
+<ext_api> = browser.sessions.onChanged.dispatch()
+<ext_api> = browser.management.onInstalled.dispatch()
+<ext_api> = browser.management.onUninstalled.dispatch()
+<ext_api> = browser.management.onEnabled.dispatch()
+
+
+
+<ext_api> = browser.runtime.onMessage.dispatch()
+<ext_api> = browser.runtime.onMessage.dispatch()
+<ext_api> = browser.runtime.onStartup.dispatch()
+<ext_api> = browser.runtime.onInstalled.dispatch()
+<ext_api> = browser.runtime.onSuspend.dispatch()
+<ext_api> = browser.runtime.onSuspendCanceled.dispatch()
+<ext_api> = browser.runtime.onUpdateAvailable.dispatch()
+<ext_api> = browser.runtime.onBrowserUpdateAvailable.dispatch()
+<ext_api> = browser.runtime.onConnect.dispatch()
+<ext_api> = browser.runtime.onConnectExternal.dispatch()
+<ext_api> = browser.runtime.onMessageExternal.dispatch()
+<ext_api> = browser.runtime.onRestartRequired.dispatch()
+
+
+
+<ext_api> = browser.webNavigation.onBeforeNavigate.dispatch()
+<ext_api> = browser.webNavigation.onCommitted.dispatch()
+<ext_api> = browser.webNavigation.onDOMContentLoaded.dispatch()
+<ext_api> = browser.webNavigation.onCompleted.dispatch()
+<ext_api> = browser.webNavigation.onErrorOccurred.dispatch()
+<ext_api> = browser.webNavigation.onCreatedNavigationTarget.dispatch()
+<ext_api> = browser.webNavigation.onReferenceFragmentUpdated.dispatch()
+<ext_api> = browser.webNavigation.onTabReplaced.dispatch()
+<ext_api> = browser.webNavigation.onHistoryStateUpdated.dispatch()
+
+
+<ext_api> = browser.history.onVisited.dispatch()
+<ext_api> = browser.history.onVisitRemoved.dispatch()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ext_api> = (browser.tabs.get(<my_tabId>, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.duplicate(<my_tabId>, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.duplicate(<my_tabId>, function(<my_tab_p>){<sentence>}))
+<ext_api> = browser.tabs.connect(<my_tabId>,{name:<my_name>, frameId:<my_frameId>})
+<ext_api> = browser.tabs.connect(<my_tabId>,{name:<my_name>})
+<ext_api> = browser.tabs.connect(<my_tabId>,{frameId:<my_frameId>})
+<ext_api> = browser.tabs.connect(<my_tabId>,{})
+<ext_api> = browser.tabs.sendRequest(<my_tabId>, <my_any>, function(<my_tab_p>){<my_callback>})
+<ext_api> = browser.tabs.sendRequest(<my_tabId>, <my_any>)
+<ext_api> = browser.tabs.sendRequest(<my_tabId>, {}, function(<my_tab_p>){<my_callback>})
+<ext_api> = browser.tabs.sendRequest(<my_tabId>, {})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, <my_json>, {frameId:<my_frameId>}, function(<my_tab_p>){<my_callback>})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, <my_json>, {}, function(<my_tab_p>){<my_callback>})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, {}, {frameId:<my_frameId>}, function(<my_tab_p>){<my_callback>})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, {}, {frameId:<my_frameId>})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, {}, {}, function(<my_tab_p>){<my_callback>})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, {}, {})
+<ext_api> = browser.tabs.sendMessage(<my_tabId>, {})
+<ext_api> = (browser.tabs.getSelected(<my_windowId>, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.getSelected(function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.getAllInWindow(<my_windowId>, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.getAllInWindow(function(<my_tab_p>){<sentence>}))
+<ext_api> = browser.tabs.create({windowId:<my_windowId>, index:<my_index>, url:<my_url>, active:<my_bool>, selected:<my_bool>, pinned:<my_bool>, openerTabId:<my_tabId>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.create({windowId:<my_windowId>, index:<my_index>, openerTabId:<my_tabId>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.create({index:<my_index>, openerTabId:<my_tabId>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.query({active:<my_bool>, pinned:<my_bool>, audible:<my_bool>, muted:<my_bool>, highlighted:<my_bool>, discarded:<my_bool>, autoDiscardable:<my_bool>, currentWindow:<my_bool>, lastFocusedWindow:<my_bool>, status:<my_TabStatus>, title:<my_name>, url:<my_urlPattern>, windowId:<my_windowId>, windowType:<my_windowType>, index:<my_index>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.query({index:<my_index>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.query({windowId:<my_windowId>, index:<my_index>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.highlight({windowId:<my_windowId>, tabs:<my_tabId>}, function(<my_window_p>){<sentence>})
+<ext_api> = browser.tabs.highlight({tabs:<my_tabId>}, function(<my_window_p>){<sentence>})
+
+
+<ext_api> = (browser.tabs.update(<my_tabId>, {url:<my_url>, active:<my_bool>, highlighted:<my_bool>, selected:<my_bool>, pinned:<my_bool>, muted:<my_bool>, openerTabId:<my_tabId>, autoDiscardable:<my_bool>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.update(<my_tabId>, {active:<my_bool>, highlighted:<my_bool>, selected:<my_bool>, pinned:<my_bool>, muted:<my_bool>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.update(<my_tabId>, {openerTabId:<my_tabId>, autoDiscardable:<my_bool>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.update(<my_tabId>, {openerTabId:<my_tabId>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.update(<my_tabId>, {autoDiscardable:<my_bool>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.update(<my_tabId>, {}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.move(<my_tabId>, {windowId:<my_windowId>, index:<my_index>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.move(<my_tabId>, {index:<my_index>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.move(<my_tabId_list>, {windowId:<my_windowId>, index:<my_index>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = (browser.tabs.move(<my_tabId_list>, {index:<my_index>}, function(<my_tab_p>){<sentence>}))
+<ext_api> = browser.tabs.reload(<my_tabId>, {bypassCache:<my_bool>}, function(){<sentence>})
+<ext_api> = browser.tabs.reload({bypassCache:<my_bool>}, function(){<sentence>})
+<ext_api> = browser.tabs.reload(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.tabs.remove(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.tabs.remove(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.tabs.remove(<my_tabId_list>, function(){<sentence>})
+<ext_api> = browser.tabs.detectLanguage(<my_tabId>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.tabs.captureVisibleTab(<my_windowId>, {quality:<my_int>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.tabs.captureVisibleTab(<my_windowId>, {quality:<my_int>}, function(<my_callback_param_temp>){<sentence>})
+
+<ext_api> = browser.tabs.executeScript(<my_tabId>, {code:<my_code>, allFrames:<my_bool>, frameId:<my_frameId>, matchAboutBlank:<my_bool>, runAt:<my_runAt>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.executeScript(<my_tabId>, {code:<my_code>, frameId:<my_frameId>}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.executeScript(<my_tabId>, {}, function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.executeScript({code:<my_code>, allFrames:<my_bool>, frameId:<my_frameId>, matchAboutBlank:<my_bool>, runAt:<my_runAt>}, function(<my_tab_p>){<sentence>})
+
+<ext_api> = browser.tabs.insertCSS(<my_tabId>, {code:<my_code>, allFrames:<my_bool>, frameId:<my_frameId>, matchAboutBlank:<my_bool>, runAt:<my_runAt>}, function(){<sentence>})
+<ext_api> = browser.tabs.insertCSS({code:<my_code>, allFrames:<my_bool>, frameId:<my_frameId>, matchAboutBlank:<my_bool>, runAt:<my_runAt>}, function(){<sentence>})
+<ext_api> = browser.tabs.insertCSS(<my_tabId>, {code:<my_code>, frameId:<my_frameId>}, function(){<sentence>})
+<ext_api> = browser.tabs.insertCSS(<my_tabId>, {}, function(){<sentence>})
+<ext_api> = browser.tabs.setZoom(<my_tabId>, <my_int>, function(){<sentence>})
+<ext_api> = browser.tabs.getZoom(<my_tabId>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.tabs.setZoomSettings(<my_tabId>, {mode:<my_ZoomSettingsMode>, scope:<my_ZoomSettingsScope>, defaultZoomFactor:<my_int>}, function(){<sentence>})
+<ext_api> = browser.tabs.setZoomSettings({mode:<my_ZoomSettingsMode>, scope:<my_ZoomSettingsScope>, defaultZoomFactor:<my_int>}, function(){<sentence>})
+<ext_api> = browser.tabs.setZoomSettings(<my_tabId>, {}, function(){<sentence>})
+<ext_api> = browser.tabs.getZoomSettings(<my_tabId>, function(){<sentence>})
+<ext_api> = (browser.tabs.discard(<my_tabId>), function(<my_tab_p>){<sentence>})
+<ext_api> = (browser.tabs.discard(<my_tabId>), function(<my_tab_p>){<sentence>})
+<ext_api> = (browser.tabs.discard(<my_tabId>), function(<my_tab_p>){<sentence>})
+<ext_api> = browser.tabs.goForward(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.tabs.goForward(function(){<sentence>})
+<ext_api> = browser.tabs.goBack(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.tabs.goBack(function(){<sentence>})
+
+
+
+<ext_api> = (browser.windows.get(<my_windowId>, {populate:<my_bool>, windowTypes:<my_windowTypes_list>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.get(<my_windowId>, {}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.getCurrent({populate:<my_bool>, windowTypes:<my_windowTypes_list>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.getLastFocused({populate:<my_bool>, windowTypes:<my_windowTypes_list>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.getAll({populate:<my_bool>, windowTypes:<my_windowTypes_list>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.create({url:<my_url>, tabId:<my_tabId>, left:<my_int>, top:<my_int>, width:<my_int>, height:<my_int>, focused:<my_bool>, incognito:<my_bool>, type:<my_CreateType>, state:<my_WindowState>, setSelfAsOpener:<my_bool>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.create({url:<my_url>, tabId:<my_tabId>, left:<my_int>, top:<my_int>, width:<my_int>, height:<my_int>, focused:<my_bool>, incognito:<my_bool>, type:<my_CreateType>, state:<my_WindowState>, setSelfAsOpener:<my_bool>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.create({tabId:<my_tabId>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.update(<my_windowId>, {left:<my_int>, top:<my_int>, width:<my_int>, height:<my_int>, focused:<my_bool>, drawAttention:<my_bool>, state:<my_WindowState>}, function(<my_window_p>){<sentence>}))
+<ext_api> = (browser.windows.update(<my_windowId>, function(<my_window_p>){<sentence>}))
+<ext_api> = browser.windows.remove(<my_windowId>, function(){<sentence>})
+<ext_api> = browser.windows.remove(<my_windowId>, function(){<sentence>})
+
+
+
+
+<ext_api> = browser.runtime.getBackgroundPage(function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.runtime.openOptionsPage(function(){<my_callback>})
+<ext_api> = browser.runtime.getManifest()
+<ext_api> = browser.runtime.getURL(<my_path>)
+<ext_api> = browser.runtime.setUninstallURL(<my_url>, function(){<my_callback>})
+<ext_api> = browser.runtime.reload()
+<ext_api> = browser.runtime.reload()
+<ext_api> = browser.runtime.requestUpdateCheck(function(<my_callback_param_temp>, <my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.runtime.connect(<my_extensionInfo_id>, {name:<my_name>, includeTlsChannelId:<my_bool>})
+<ext_api> = browser.runtime.connect(<my_extensionInfo_id>, {includeTlsChannelId:<my_bool>})
+<ext_api> = browser.runtime.connect({includeTlsChannelId:<my_bool>})
+<ext_api> = browser.runtime.connect(<my_extensionInfo_id>, {})
+<ext_api> = browser.runtime.connect({})
+<ext_api> = browser.runtime.connect()
+<ext_api> = browser.runtime.connectNative(<my_name>)
+<ext_api> = browser.runtime.connectNative(<my_name>)
+<ext_api> = browser.runtime.sendMessage(<my_extensionInfo_id>, <my_json>, {includeTlsChannelId:<my_bool>}, function(response){<my_callback>})
+<ext_api> = browser.runtime.sendMessage(<my_extensionInfo_id>, <my_json>, {includeTlsChannelId:<my_bool>})
+<ext_api> = browser.runtime.sendMessage(<my_extensionInfo_id>, <my_json>, {}, function(response){<my_callback>})
+<ext_api> = browser.runtime.sendMessage(<my_extensionInfo_id>, <my_json>, {})
+<ext_api> = browser.runtime.sendMessage(<my_json>)
+<ext_api> = browser.runtime.sendMessage({})
+<ext_api> = browser.runtime.sendNativeMessage(<my_name>, <my_json>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.runtime.sendNativeMessage(<my_name>, <my_json>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.runtime.getPlatformInfo(function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.runtime.getPackageDirectoryEntry(function(<my_callback_param_temp>){<my_callback>})
+
+
+
+
+<ext_api> = (browser.sessions.getRecentlyClosed({maxResults:<my_index>}, function(<my_session_list>){<sentence>}))
+<ext_api> = browser.sessions.getDevices({maxResults:<my_index>}, function(<my_session_p>){<sentence>})
+<ext_api> = (browser.sessions.restore(<my_sessionId>))
+<ext_api> = (browser.sessions.restore(<my_sessionId>, function(<my_session_p>){<sentence>}))
+<ext_api> = (browser.sessions.restore(<my_sessionId>, function(<my_session_p>){<sentence>}))
+
+
+<ext_api> = (browser.management.getAll(function(<my_extensionInfo_list>){<sentence>}))
+<ext_api> = (browser.management.getAll())
+<ext_api> = (browser.management.get(<my_extensionInfo_id>, function(<my_extensionInfo_p>){<sentence>}))
+<ext_api> = (browser.management.getSelf(function(<my_extensionInfo_p>){<sentence>}))
+<ext_api> = (browser.management.getPermissionWarningsById(<my_extensionInfo_id>, function(<my_extensionInfo_list>){<sentence>}))
+<ext_api> = browser.management.setEnabled(<my_extensionInfo_id>, <my_bool>, function(){<sentence>})
+<ext_api> = browser.management.uninstall(<my_extensionInfo_id>, function(){<sentence>})
+<ext_api> = browser.management.uninstallSelf(function(){<sentence>})
+<ext_api> = browser.management.launchApp(<my_extensionInfo_id>, function(){<sentence>})
+<ext_api> = browser.management.createAppShortcut(<my_extensionInfo_id>, function(){<sentence>})
+<ext_api> = browser.management.setLaunchType(<my_extensionInfo_id>, <my_LaunchType>, function(){<sentence>})
+<ext_api> = (browser.management.generateAppForLink(<my_url>, <my_name>, function(<my_extensionInfo_p>){<sentence>}))
+<ext_api> = browser.management.canInstallReplacementAndroidApp(function(result){<sentence>})
+<ext_api> = browser.management.installReplacementAndroidApp(function(){<sentence>})
+<ext_api> = browser.management.installReplacementWebApp(function(){<sentence>})
+
+<ext_api> = browser.extension.sendRequest(<my_extensionInfo_id>, <my_any>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendRequest(<my_any>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendRequest(<my_any>)
+<ext_api> = browser.extension.sendRequest({})
+<ext_api> = browser.extension.sendRequest(<my_extensionInfo_id>, <my_any>)
+<ext_api> = browser.extension.sendRequest(<my_extensionInfo_id>, {}, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.getURL(<my_path>)
+<ext_api> = browser.extension.getViews({type:<my_ViewType>, windowId:<my_windowId>, tabId:<my_tabId>})
+<ext_api> = browser.extension.getViews({tabId:<my_tabId>})
+<ext_api> = browser.extension.getViews({windowId:<my_windowId>})
+<ext_api> = browser.extension.getBackgroundPage()
+<ext_api> = browser.extension.getExtensionTabs(<my_windowId>)
+<ext_api> = browser.extension.getExtensionTabs()
+<ext_api> = browser.extension.isAllowedIncognitoAccess(function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.isAllowedFileSchemeAccess(function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.setUpdateUrlData(<my_url>)
+<ext_api> = browser.extension.connect(<my_extensionInfo_id>)
+<ext_api> = browser.extension.connect(<my_extensionInfo_id>)
+<ext_api> = browser.extension.connect()
+<ext_api> = browser.extension.connectNative(<my_extensionInfo_id>)
+<ext_api> = browser.extension.connectNative(<my_extensionInfo_id>)
+<ext_api> = browser.extension.connectNative()
+<ext_api> = browser.extension.sendMessage(<my_extensionInfo_id>, <my_json>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendMessage(<my_extensionInfo_id>, <my_json>)
+<ext_api> = browser.extension.sendMessage(<my_json>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendMessage(<my_extensionInfo_id>, {}, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendMessage({}, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendMessage({})
+<ext_api> = browser.extension.sendNativeMessage(<my_extensionInfo_id>, <my_json>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendNativeMessage(<my_extensionInfo_id>, <my_json>)
+<ext_api> = browser.extension.sendNativeMessage(<my_json>, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendNativeMessage(<my_extensionInfo_id>, {}, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendNativeMessage({}, function(<my_callback_param_temp>){<my_callback>})
+<ext_api> = browser.extension.sendNativeMessage({})
+
+
+<ext_api> = browser.webNavigation.getFrame({tabId:<my_tabId>, processId:<my_processId>, frameId:<my_frameId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.webNavigation.getFrame({tabId:<my_tabId>, processId:<my_processId>, frameId:<my_frameId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.webNavigation.getAllFrames({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.webNavigation.getAllFrames({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+
+
+
+
+<ext_api> = browser.alarms.create(<my_name>, {when:<my_int>, delayInMinutes:<my_int>, periodInMinutes:<my_int>})
+<ext_api> = browser.alarms.get(<my_name>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.alarms.getAll(function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.alarms.clear(<my_name>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.alarms.clearAll(function(<my_callback_param_temp>){<sentence>})
+
+<ext_api> = browser.bookmarks.get(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.get(<my_IDs_list>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.getChildren(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.getRecent(<my_int>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.getTree(function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.getSubTree(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.search(<my_url>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.create({parentId:<my_ID>, index:<my_index>, title:<my_name>, url:<my_url>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.create({parentId:<my_ID>, index:<my_index>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.create({index:<my_index>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.create({parentId:<my_ID>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.move(<my_ID>, {parentId:<my_ID>, index:<my_index>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.move(<my_ID>, {parentId:<my_ID>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.move(<my_ID>, {index:<my_index>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.update(<my_ID>, {title:<my_name>, url:<my_url>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.update(<my_ID>, {title:<my_name>, url:<my_url>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.remove(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.remove(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.removeTree(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.bookmarks.removeTree(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+
+<ext_api> = browser.browserAction.setTitle({title:<my_str>, tabId:<my_tabId>},function(){<sentence>})
+<ext_api> = browser.browserAction.setTitle({title:<my_str>},function(){<sentence>})
+<ext_api> = browser.browserAction.getTitle({tabId:<my_tabId>}, function(results){<sentence>})
+<ext_api> = browser.browserAction.getTitle(function(results){<sentence>})
+<ext_api> = browser.browserAction.setIcon({path:<my_path>, tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setIcon({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setIcon({path:<my_path>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setPopup({tabId:<my_tabId>, popup:<my_str>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setPopup({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setPopup({popup:<my_str>}, function(){<sentence>})
+<ext_api> = browser.browserAction.getPopup({tabId:<my_tabId>}, function(results){<sentence>})
+<ext_api> = browser.browserAction.getPopup({}, function(results){<sentence>})
+<ext_api> = browser.browserAction.setBadgeText({text:<my_str>, tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setBadgeText({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setBadgeText({text:<my_str>}, function(){<sentence>})
+<ext_api> = browser.browserAction.getBadgeText({tabId:<my_tabId>}, function(results){<sentence>})
+<ext_api> = browser.browserAction.getBadgeText({}, function(results){<sentence>})
+<ext_api> = browser.browserAction.setBadgeBackgroundColor({color:<my_ID>, tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.browserAction.setBadgeBackgroundColor({color:<my_ID>}, function(){<sentence>})
+<ext_api> = browser.browserAction.getBadgeBackgroundColor({tabId:<my_tabId>}, function(results){<sentence>})
+<ext_api> = browser.browserAction.getBadgeBackgroundColor({}, function(results){<sentence>})
+<ext_api> = browser.browserAction.enable(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.browserAction.disable(<my_tabId>, function(){<sentence>})
+
+<ext_api> = browser.history.search({text:<my_str>, startTime:<my_int>, endTime:<my_int>, maxResults:<my_int>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.history.getVisits({url:<my_url>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.history.addUrl({url:<my_url>}, function(){<sentence>})
+<ext_api> = browser.history.deleteUrl({url:<my_url>}, function(){<sentence>})
+<ext_api> = browser.history.deleteRange({startTime:<my_int>, endTime:<my_int>}, function(){<sentence>})
+<ext_api> = browser.history.deleteAll(function(){<sentence>})
+
+
+<ext_api> = browser.idle.queryState(<my_int>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.idle.setDetectionInterval(<my_int>)
+<ext_api> = browser.idle.getAutoLockDelay(function(<my_callback_param_temp>){<sentence>})
+
+
+<ext_api> = browser.notifications.create(<my_ID>, {type:<my_TemplateType>, iconUrl:<my_url>, appIconMaskUrl:<my_url>, title:<my_str>, message:<my_str>, contextMessage:<my_str>, priority:<my_int>, eventTime:<my_int>, progress:<my_int>, isClickable:<my_bool>, requireInteraction:<my_bool>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.create(<my_ID>, {}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.create({}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.update(<my_ID>, {type:<my_TemplateType>, iconUrl:<my_url>, appIconMaskUrl:<my_url>, title:<my_str>, message:<my_str>, contextMessage:<my_str>, priority:<my_int>, eventTime:<my_int>, progress:<my_int>, isClickable:<my_bool>, requireInteraction:<my_bool>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.update(<my_ID>, {}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.clear(<my_ID>, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.getAll(function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.notifications.getPermissionLevel(function(<my_callback_param_temp>){<sentence>})
+
+<ext_api> = browser.omnibox.setDefaultSuggestion({description:<my_str>})
+
+<ext_api> = browser.action.setTitle({title:<my_str>, tabId:<my_tabId>},function(){<sentence>})
+<ext_api> = browser.action.setTitle({title:<my_str>},function(){<sentence>})
+<ext_api> = browser.action.getTitle({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.getTitle(function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.setIcon({path:<my_path>, tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.action.setIcon({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.action.setIcon({path:<my_path>}, function(){<sentence>})
+<ext_api> = browser.action.setPopup({tabId:<my_tabId>, popup:<my_str>}, function(){<sentence>})
+<ext_api> = browser.action.setPopup({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.action.setPopup({popup:<my_str>}, function(){<sentence>})
+<ext_api> = browser.action.getPopup({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.getPopup({}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.setBadgeText({text:<my_str>, tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.action.setBadgeText({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.action.setBadgeText({text:<my_str>}, function(){<sentence>})
+<ext_api> = browser.action.getBadgeText({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.getBadgeText({}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.setBadgeBackgroundColor({color:<my_ID>, tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.action.setBadgeBackgroundColor({color:<my_ID>}, function(){<sentence>})
+<ext_api> = browser.action.getBadgeBackgroundColor({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.getBadgeBackgroundColor({}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.action.enable(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.action.enable(function(){<sentence>})
+<ext_api> = browser.action.disable(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.action.disable(function(){<sentence>})
+
+<ext_api> = browser.pageAction.show(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.pageAction.hide(<my_tabId>, function(){<sentence>})
+<ext_api> = browser.pageAction.setTitle({tabId:<my_tabId>, title:<my_str>}, function(){<sentence>})
+<ext_api> = browser.pageAction.getTitle({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.pageAction.setIcon({tabId:<my_tabId>, imageData:<my_json>, path:<my_path>, iconIndex:<my_int>}, function(){<sentence>})
+<ext_api> = browser.pageAction.setIcon({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.pageAction.setPopup({tabId:<my_tabId>, popup:<my_str>}, function(){<sentence>})
+<ext_api> = browser.pageAction.setPopup({tabId:<my_tabId>}, function(){<sentence>})
+<ext_api> = browser.pageAction.getPopup({tabId:<my_tabId>}, function(<my_callback_param_temp>){<sentence>})
+
+<ext_api> = browser.topSites.get(function(<my_callback_param_temp>){<sentence>})
+
+
+<ext_api> = browser.tts.speak(<my_str>, {enqueue:<my_bool>, voiceName:<my_name>, extensionId:<my_extensionInfo_id>, lang:<my_str>, rate:<my_int>, pitch:<my_int>, volume:<my_int>}, function(){<sentence>})
+<ext_api> = browser.tts.speak(<my_str>, {extensionId:<my_extensionInfo_id>}, function(){<sentence>})
+<ext_api> = browser.tts.speak(<my_str>, {}, function(){<sentence>})
+<ext_api> = browser.tts.stop()
+<ext_api> = browser.tts.pause()
+<ext_api> = browser.tts.resume()
+<ext_api> = browser.tts.isSpeaking(function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.tts.getVoices(function(<my_callback_param_temp>){<sentence>})
+
+
+
+
+
+<ext_api> = browser.browsingData.settings(function(<my_callback_param_temp>){<sentence>})
+<ext_api> = browser.browsingData.remove({since:<my_int>}, {appcache:<my_bool>, cache:<my_bool>, cacheStorage:<my_bool>, cookies:<my_bool>, downloads:<my_bool>, fileSystems:<my_bool>, formData:<my_bool>, history:<my_bool>, indexedDB:<my_bool>, localStorage:<my_bool>, serverBoundCertificates:<my_bool>, passwords:<my_bool>, pluginData:<my_bool>, serviceWorkers:<my_bool>, webSQL:<my_bool>}, function(){<sentence>})
+<ext_api> = browser.browsingData.remove({}, {appcache:<my_bool>, cache:<my_bool>, cacheStorage:<my_bool>, cookies:<my_bool>, downloads:<my_bool>, fileSystems:<my_bool>, formData:<my_bool>, history:<my_bool>, indexedDB:<my_bool>, localStorage:<my_bool>, serverBoundCertificates:<my_bool>, passwords:<my_bool>, pluginData:<my_bool>, serviceWorkers:<my_bool>, webSQL:<my_bool>}, function(){<sentence>})
+<ext_api> = browser.browsingData.remove({since:<my_int>}, {}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeAppcache({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeAppcache({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeCache({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeCache({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeCacheStorage({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeCacheStorage({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeCookies({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeCookies({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeDownloads({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeDownloads({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeFileSystems({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeFileSystems({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeFormData({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeFormData({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeHistory({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeHistory({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeIndexedDB({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeIndexedDB({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeLocalStorage({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeLocalStorage({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removePluginData({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removePluginData({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removePasswords({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removePasswords({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeServiceWorkers({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeServiceWorkers({}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeWebSQL({since:<my_int>}, function(){<sentence>})
+<ext_api> = browser.browsingData.removeWebSQL({}, function(){<sentence>})
+
+
+
+
+
+
+
+
+
+
+
+<ext_api> = <my_tab>.active = <my_bool>
+<ext_api> = <my_tab>.audible = <my_bool>
+<ext_api> = <my_tab>.autoDiscardable = <my_bool>
+<ext_api> = <my_tab>.discarded = <my_bool>
+<ext_api> = <my_tab>.height = <my_int>
+<ext_api> = <my_tab>.width = <my_int>
+<ext_api> = <my_tab>.highlighted = <my_bool>
+<ext_api> = <my_tab>.id = <my_index>
+<ext_api> = <my_tab>.id = <my_tabId>
+<ext_api> = <my_tab>.incognito = <my_bool>
+<ext_api> = <my_tab>.index = <my_index>
+<ext_api> = <my_tab>.pinned = <my_bool>
+<ext_api> = <my_tab>.selected = <my_bool>
+<ext_api> = <my_tab>.status = <my_TabStatus>
+<ext_api> = <my_tab>.windowId = <my_index>
+<ext_api> = <my_tab>.windowId = <my_windowId>
+
+<ext_api> = <my_window>.alwaysOnTop = <my_bool>
+<ext_api> = <my_window>.focused = <my_bool>
+<ext_api> = <my_window>.height = <my_int>
+<ext_api> = <my_window>.width = <my_int>
+<ext_api> = <my_window>.id = <my_index>
+<ext_api> = <my_window>.id = <my_index>
+<ext_api> = <my_window>.id = <my_windowId>
+<ext_api> = <my_window>.id = <my_windowId>
+<ext_api> = <my_window>.incognito = <my_bool>
+<ext_api> = <my_window>.left = <my_int>
+<ext_api> = <my_window>.state = <my_WindowState>
+<ext_api> = <my_window>.top = <my_int>
+<ext_api> = <my_window>.type = <my_windowType>
+
+<ext_api> = <my_session>.tab = <my_tab>
+<ext_api> = <my_session>.window = <my_window>
+
+
+
+

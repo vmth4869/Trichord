@@ -1,0 +1,16 @@
+<browser_omnibox> = <lines count=10>
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+await browser.omnibox.setDefaultSuggestion({description:<my_str>})
+browser.omnibox.setDefaultSuggestion({description:<my_str>})
+browser.omnibox.onInputChanged.addListener(function(<my_str>){<my_callback>})
+browser.omnibox.onInputEntered.addListener(function(<my_str>){<my_callback>})
+browser.omnibox.onInputStarted.addListener(<my_ListenerFunc_p0>)
+browser.omnibox.onInputCancelled.addListener(<my_ListenerFunc_p0>)
+browser.tabs.query({active:<my_bool>, pinned:<my_bool>, audible:<my_bool>, muted:<my_bool>, highlighted:<my_bool>, discarded:<my_bool>, autoDiscardable:<my_bool>, currentWindow:<my_bool>, lastFocusedWindow:<my_bool>, status:<my_TabStatus>, title:<my_name>, url:<my_urlPattern>, windowId:<my_windowId>, windowType:<my_windowType>, index:<my_index>}, function(<my_tab_p>){<my_callback>})
+(browser.tabs.update(<my_tabId>, {url:<my_url>, active:<my_bool>, highlighted:<my_bool>, selected:<my_bool>, pinned:<my_bool>, muted:<my_bool>, openerTabId:<my_tabId>, autoDiscardable:<my_bool>}, function(<my_tab_p>){<my_callback>}))
+browser.tabs.create({windowId:<my_windowId>, index:<my_index>, url:<my_url>, active:<my_bool>, selected:<my_bool>, pinned:<my_bool>, openerTabId:<my_tabId>})
+(browser.windows.create({url:<my_url>, tabId:<my_tabId>, left:<my_int>, top:<my_int>, width:<my_int>, height:<my_int>, focused:<my_bool>, incognito:<my_bool>, type:<my_CreateType>, state:<my_WindowState>, setSelfAsOpener:<my_bool>}, function(<my_window_p>){<my_callback>}))
+await browser.tabs.reload(<my_tabId>, {bypassCache:<my_bool>}, function(){<my_callback>})
+!end lines

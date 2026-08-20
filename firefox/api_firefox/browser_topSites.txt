@@ -1,0 +1,15 @@
+<browser_topSites> = <lines count=10>
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+await browser.topSites.get(function(<my_callback_param_temp>){<my_callback>})
+browser.topSites.get(function(<my_callback_param_temp>){<my_callback>})
+browser.topSites.get(function(<my_callback_param_temp>){<sentence>})
+await browser.topSites.get({includeFavicon:<my_bool>, newtab:<my_bool>}, function(<my_callback_param_temp>){<my_callback>})
+await browser.topSites.get({}, function(<my_callback_param_temp>){<my_callback>})
+browser.tabs.create({windowId:<my_windowId>, index:<my_index>, url:<my_url>, active:<my_bool>, selected:<my_bool>, pinned:<my_bool>, openerTabId:<my_tabId>})
+(browser.tabs.update(<my_tabId>, {url:<my_url>, active:<my_bool>, highlighted:<my_bool>, selected:<my_bool>, pinned:<my_bool>, muted:<my_bool>, openerTabId:<my_tabId>, autoDiscardable:<my_bool>}, function(<my_tab_p>){<my_callback>}))
+browser.storage.local.set(<my_json>, function(){<my_callback>})
+browser.storage.sync.set(<my_json>, function(){<my_callback>})
+await browser.tabs.reload(<my_tabId>, {bypassCache:<my_bool>}, function(){<my_callback>})
+!end lines

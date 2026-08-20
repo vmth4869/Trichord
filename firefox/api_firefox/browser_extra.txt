@@ -1,0 +1,166 @@
+
+!end lines
+
+<browser_find> = <lines count=15>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.find.find({query:<my_name>, caseSensitive:<my_bool>, includeRangeOfMatch:<my_bool>})
+await browser.find.find({query:<my_name>})
+await browser.find.find({query:"fuzz"})
+await browser.find.highlightResults({tabId:<my_tabId>, rangeIndex:<my_int>})
+await browser.find.removeHighlighting({tabId:<my_tabId>})
+await browser.find.removeHighlighting()
+
+!end lines
+
+<browser_menus> = <lines count=20>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.menus.create({id:<my_name>, title:<my_name>, contexts:["all"], onclick:function(){}})
+await browser.menus.create({title:<my_name>})
+await browser.menus.update(<my_int>, {title:<my_name>, visible:<my_bool>})
+await browser.menus.remove(<my_int>)
+await browser.menus.removeAll()
+await browser.menus.refresh()
+browser.menus.onClicked.addListener(function(info, tab){})
+browser.menus.onShown.addListener(function(info, tab))
+
+!end lines
+
+<browser_sidebarAction> = <lines count=15>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.sidebarAction.setPanel({panel:<my_url>})
+await browser.sidebarAction.setPanel({tabId:<my_tabId>, panel:<my_url>})
+await browser.sidebarAction.setTitle({title:<my_name>})
+await browser.sidebarAction.setIcon({path:<my_path>})
+await browser.sidebarAction.getPanel({})
+await browser.sidebarAction.getTitle({})
+await browser.sidebarAction.open()
+await browser.sidebarAction.close()
+
+!end lines
+
+<browser_contextualIdentities> = <lines count=15>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.contextualIdentities.create({name:<my_name>, color:"blue", icon:"circle"})
+await browser.contextualIdentities.create({name:<my_name>})
+await browser.contextualIdentities.update(<my_name>, {name:<my_name>, color:"red"})
+await browser.contextualIdentities.remove(<my_name>)
+await browser.contextualIdentities.query({})
+await browser.contextualIdentities.get(<my_name>)
+
+!end lines
+
+<browser_browserSettings> = <lines count=15>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.browserSettings.allowPopupsForUserEvents.set({value:<my_bool>})
+await browser.browserSettings.homepageOverride.set({value:<my_url>})
+await browser.browserSettings.newTabPosition.set({value:"afterCurrent"})
+await browser.browserSettings.contextMenuShowEvent.set({value:"mouseup"})
+await browser.browserSettings.openUrlbarResultsInNewTabs.set({value:true})
+await browser.browserSettings.openSearchResultsInNewTabs.set({value:false})
+await browser.browserSettings.useDocumentFonts.get({})
+
+!end lines
+
+<browser_captivePortal> = <lines count=10>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.captivePortal.getState()
+browser.captivePortal.onConnectivityAvailable.addListener(function(status){})
+browser.captivePortal.onStateChanged.addListener(function(state))
+
+!end lines
+
+<browser_commands> = <lines count=15>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.commands.getAll()
+await browser.commands.reset()
+browser.commands.onCommand.addListener(function(command))
+
+!end lines
+
+<browser_cookies> = <lines count=20>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.cookies.set({url:<my_url>, name:<my_name>, value:<my_name>, domain:"127.0.0.1", path:"/"})
+await browser.cookies.set({url:"http://127.0.0.1/", name:"f", value:"v"})
+await browser.cookies.get({url:<my_url>, name:<my_name>})
+await browser.cookies.getAll({domain:"127.0.0.1"})
+await browser.cookies.getAll({})
+await browser.cookies.remove({url:<my_url>, name:<my_name>})
+await browser.cookies.getAllCookieStores()
+
+!end lines
+
+<browser_downloads> = <lines count=20>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.downloads.download({url:<my_url>, filename:<my_name>, saveAs:false})
+await browser.downloads.download({url:<my_url>})
+await browser.downloads.download({url:"data:text/plain,fuzz", filename:"f.bin"})
+await browser.downloads.cancel(<my_int>)
+await browser.downloads.erase({id:<my_int>})
+await browser.downloads.search({})
+await browser.downloads.pause(<my_int>)
+await browser.downloads.resume(<my_int>)
+
+!end lines
+
+<browser_webRequest> = <lines count=20>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+browser.webRequest.onBeforeRequest.addListener(function(d){ return {cancel:true}; }, {urls:["<all_urls>"]}, ["blocking"])
+browser.webRequest.onBeforeSendHeaders.addListener(function(d){ return {requestHeaders:d.requestHeaders}; }, {urls:["<all_urls>"]}, ["blocking","requestHeaders"])
+browser.webRequest.onHeadersReceived.addListener(function(d){ return {responseHeaders:d.responseHeaders}; }, {urls:["<all_urls>"]}, ["blocking","responseHeaders"])
+browser.webRequest.onCompleted.addListener(function(d){}, {urls:["<all_urls>"]})
+browser.webRequest.onErrorOccurred.addListener(function(d){}, {urls:["<all_urls>"]})
+browser.webRequest.getSecurityInfo(<my_tabId>)
+
+!end lines
+
+<browser_privacy> = <lines count=15>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+await browser.privacy.websites.cookieConfig.set({value:"allow_all"})
+await browser.privacy.websites.firstPartyIsolate.set({value:true})
+await browser.privacy.services.passwordSavingEnabled.set({value:false})
+await browser.privacy.websites.hyperlinkAuditingEnabled.set({value:true})
+await browser.privacy.network.prefetchEnabled.get({})

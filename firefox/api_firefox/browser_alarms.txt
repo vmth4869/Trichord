@@ -1,0 +1,27 @@
+<browser_alarms> = <lines count=10>
+!lineguard try { <line> } catch(e) {}
+
+!begin lines
+browser.alarms.onAlarm.addListener(<my_ListenerFunc_p0>)
+browser.alarms.onAlarm.dispatch()
+browser.alarms.onAlarm.removeListener(<my_ListenerFunc_p0>)
+await browser.alarms.create(<my_name>, {when:<my_int>, delayInMinutes:<my_int>, periodInMinutes:<my_int>})
+await browser.alarms.get(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+await browser.alarms.getAll(function(<my_callback_param_temp>){<my_callback>})
+await browser.alarms.clear(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+await browser.alarms.clearAll(function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.create(<my_name>, {when:<my_int>, delayInMinutes:<my_int>, periodInMinutes:<my_int>})
+browser.alarms.get(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.getAll(function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.clear(<my_name>, function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.clearAll(function(<my_callback_param_temp>){<my_callback>})
+browser.alarms.get(<my_name>, function(<my_callback_param_temp>){<sentence>})
+browser.alarms.getAll(function(<my_callback_param_temp>){<sentence>})
+browser.alarms.clear(<my_name>, function(<my_callback_param_temp>){<sentence>})
+browser.alarms.clearAll(function(<my_callback_param_temp>){<sentence>})
+browser.runtime.onStartup.addListener(<my_ListenerFunc_p0>)
+browser.runtime.onInstalled.addListener(<my_ListenerFunc_p1>)
+browser.storage.local.set(<my_json>, function(){<my_callback>})
+browser.storage.sync.set(<my_json>, function(){<my_callback>})
+await browser.runtime.getBackgroundPage(function(<my_callback_param_temp>){<my_callback>})
+!end lines

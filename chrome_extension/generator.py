@@ -87,7 +87,7 @@ def generate_samples(grammar_dir, outfiles):
     subsystem = get_option('--subsystem')
     # print('================= '+str(subsystem))
     if subsystem:
-        jsgrammar.parse_from_file('./api/chrome_' + subsystem + '.txt')
+        jsgrammar.parse_from_file(os.path.join(grammar_dir, 'api', 'chrome_' + subsystem + '.txt'))
 
 
     for outfile in outfiles:

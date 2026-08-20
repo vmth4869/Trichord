@@ -1,0 +1,196 @@
+
+
+
+
+let tab_list = [];  //tab_list[getRandomInt(0, tab_list.length-1)]
+let tabList_list = []
+
+let window_list = [-2];
+let extensionInfo_list = []
+let frameId_list = [-1,0]
+let processId_list = [0]
+let desktopMediaRequestId_list = [0]
+
+function getRandomInt(min,  max) {                          
+    min = Math.ceil(min);                                     
+    max = Math.floor(max);                                    
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
+  }  
+
+
+  async function zeroDelay() {
+	return new Promise(resolve => setTimeout(resolve, 0))
+  }
+//////////////////////////////////////////////////////////////////
+function browser_tabs_create(opt) {
+	return new Promise(resolve => {
+		browser.tabs.create(opt, tab => resolve(tab));
+	});
+  }//tab = await browser_tabs_create({index:0,url:browser.extension.getURL("js/01.html")});
+
+  function browser_tabs_get(tabId) {
+	return new Promise(resolve => {
+		browser.tabs.get(tabId, tab => resolve(tab));
+	});
+  }
+  function browser_tabs_getCurrent() {
+	return new Promise(resolve => {
+		browser.tabs.getCurrent(tab => resolve(tab));
+	});
+  }
+  function browser_tabs_duplicate(tabId) {
+	return new Promise(resolve => {
+		browser.tabs.duplicate(tabId, tab => resolve(tab));
+	});
+  }
+  function browser_tabs_getSelected(winId) {
+	return new Promise(resolve => {
+		browser.tabs.getSelected(winId, tab => resolve(tab));
+	});
+  }
+  function browser_tabs_getAllInWindow(winId) {
+	return new Promise(resolve => {
+		browser.tabs.getAllInWindow(winId, tabs => resolve(tabs));//////// tabs??
+	});
+  }
+  function browser_tabs_query(queryInfo) {
+	return new Promise(resolve => {
+		browser.tabs.query(queryInfo, tabs => resolve(tabs));
+	});
+  }
+  function browser_tabs_update(tabId, updateProperties) {
+	return new Promise(resolve => {
+		browser.tabs.update(tabId, updateProperties, tab => resolve(tab));
+	});
+  }
+  function browser_tabs_move(tabIds, updateProperties) {
+	return new Promise(resolve => {
+		browser.tabs.move(tabIds, updateProperties, tabs => resolve(tabs));
+	});
+  }
+  function browser_tabs_discard(tabId) {
+	return new Promise(resolve => {
+		browser.tabs.discard(tabId, tab => resolve(tab));
+	});
+  }
+  function browser_tabs_onCreated_addListener() {
+	return new Promise(resolve => {
+		browser.tabs.onCreated.addListener(tab => resolve(tab));
+	});
+  }
+
+
+
+  function browser_windows_get(windowId, getInfo) {
+	return new Promise(resolve => {
+		browser.windows.get(windowId, getInfo, window => resolve(window));
+	});
+  }
+  function browser_windows_getCurrent(getInfo) {
+	return new Promise(resolve => {
+		browser.windows.getCurrent(getInfo, window => resolve(window));
+	});
+  }
+  function browser_windows_getLastFocused(getInfo) {
+	return new Promise(resolve => {
+		browser.windows.getLastFocused(getInfo, window => resolve(window));
+	});
+  }
+  function browser_windows_getAll(getInfo) {
+	return new Promise(resolve => {
+		browser.windows.getAll(getInfo, window => resolve(window));
+	});
+  }
+  function browser_windows_create(createData) {
+	return new Promise(resolve => {
+		browser.windows.create(createData, window => resolve(window));
+	});
+  }
+  function browser_windows_update(windowId, updateInfo) {
+	return new Promise(resolve => {
+		browser.windows.update(windowId, updateInfo, window => resolve(window));
+	});
+  }
+
+
+
+  function browser_sessions_getRecentlyClosed(filter) {
+	return new Promise(resolve => {
+		browser.sessions.getRecentlyClosed(filter, sessions => resolve(sessions));
+	});
+  }
+  function browser_sessions_getDevices(filter) {
+	return new Promise(resolve => {
+		browser.sessions.getDevices(filter, devices => resolve(devices));
+	});
+  }
+  function browser_sessions_restore(sessionId) {
+	return new Promise(resolve => {
+		browser.sessions.restore(sessionId, restoredSession => resolve(restoredSession));
+	});
+  }
+
+
+
+  function browser_management_getAll() {
+	return new Promise(resolve => {
+		browser.management.getAll(result => resolve(result));
+	});
+  }
+  function browser_management_get(id) {
+	return new Promise(resolve => {
+		browser.management.get(id, result => resolve(result));
+	});
+  }
+  function browser_management_getSelf() {
+	return new Promise(resolve => {
+		browser.management.getSelf(result => resolve(result));
+	});
+  }
+  function browser_management_generateAppForLink(url, title) {
+	return new Promise(resolve => {
+		browser.management.generateAppForLink(url, title, result => resolve(result));
+	});
+  }
+
+  function browser_webNavigation_getAllFrames(details) {
+	return new Promise(resolve => {
+		browser.webNavigation.getAllFrames(details, result => resolve(result));
+	});
+  }
+  function browser_webNavigation_getFrame(details) {
+	return new Promise(resolve => {
+		browser.webNavigation.getFrame(details, result => resolve(result));
+	});
+  }
+
+
+
+
+
+
+
+
+
+  browser.tabs.create({url:"js/main.html"}, function(tab) {
+    targetId = tab.id;
+    console.log('[background.js] browser.tabs.create',tab)
+
+
+  });
+
+
+
+//////////////////////////////////////////////////////////
+
+async function poc(){
+    var i=0;
+
+<extfuzzer>
+
+    
+}
+
+poc();
+
+

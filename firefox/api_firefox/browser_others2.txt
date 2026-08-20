@@ -1,0 +1,105 @@
+
+
+<browser_others2> = <lines count=30>
+!lineguard try { <line> } catch(e) {}
+
+!include ./ext_var.txt
+
+!begin lines
+
+
+for(i=0; i <for_int>; ++i) {<line>}
+for(i=0; i <for_int>; i++){<line>}
+for(i=0; i <for_int>; i++){<line>}
+for(i=0; i <for_int>; i++){<line>}
+window.setTimeout(function() {<my_callback>}, <int min=0 max=100>*100*5);
+window.setTimeout(function() {<my_callback>}, <int min=0 max=100>*100*10);
+window.setTimeout(function() {<my_callback>}, <int min=0 max=100>*100*20);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+await browser.storage.sync.set(<my_json>, function(){<my_callback>})
+await browser.storage.sync.get([<my_jsonkey>], function(result){<my_callback>})
+await browser.storage.sync.remove([<my_jsonkey>], function(result){<my_callback>})
+await browser.storage.sync.clear()
+await browser.storage.local.set(<my_json>, function(){<my_callback>})
+await browser.storage.local.get([<my_jsonkey>], function(result){<my_callback>})
+await browser.storage.local.remove([<my_jsonkey>], function(result){<my_callback>})
+await browser.storage.local.clear()
+
+
+await browser.storage.sync.set({color: <my_color>}, function(){<my_callback>})
+await browser.storage.sync.get(['color'], function(result){<my_callback>})
+await browser.storage.sync.remove(['color'], function(result){<my_callback>})
+await browser.storage.sync.clear()
+await browser.storage.local.set({color: <my_color>}, function(){<my_callback>})
+await browser.storage.local.get(['color'], function(result){<my_callback>})
+await browser.storage.local.remove(['color'], function(result){<my_callback>})
+await browser.storage.local.clear()
+
+await browser.storage.sync.set({color: <my_color>}, function(){<my_callback>})
+await browser.storage.sync.get(['color'], function(result){<my_callback>})
+await browser.storage.sync.remove(['color'], function(result){<my_callback>})
+await browser.storage.sync.clear()
+await browser.storage.local.set({color: <my_color>}, function(){<my_callback>})
+await browser.storage.local.get(['color'], function(result){<my_callback>})
+await browser.storage.local.remove(['color'], function(result){<my_callback>})
+await browser.storage.local.clear()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+browser.storage.sync.set(<my_json>, function(){<my_callback>})
+browser.storage.sync.get([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.sync.remove([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.sync.clear()
+browser.storage.local.set(<my_json>, function(){<my_callback>})
+browser.storage.local.get([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.local.remove([<my_jsonkey>], function(result){<my_callback>})
+browser.storage.local.clear()
+
+
+browser.storage.sync.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.sync.get(['color'], function(result){<my_callback>})
+browser.storage.sync.remove(['color'], function(result){<my_callback>})
+browser.storage.sync.clear()
+browser.storage.local.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.local.get(['color'], function(result){<my_callback>})
+browser.storage.local.remove(['color'], function(result){<my_callback>})
+browser.storage.local.clear()
+
+browser.storage.sync.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.sync.get(['color'], function(result){<my_callback>})
+browser.storage.sync.remove(['color'], function(result){<my_callback>})
+browser.storage.sync.clear()
+browser.storage.local.set({color: <my_color>}, function(){<my_callback>})
+browser.storage.local.get(['color'], function(result){<my_callback>})
+browser.storage.local.remove(['color'], function(result){<my_callback>})
+browser.storage.local.clear()
+
+
+!end lines
