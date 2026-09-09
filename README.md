@@ -2,6 +2,17 @@
 
 A grammar-based fuzzing tool for generating Chrome extension API test cases, based on [Domato](https://github.com/googleprojectzero/domato/commit/fadff396cc45d521cc594d3e2396e27e887b1963). This tool generates extension code that exercises various Chrome extension APIs for security testing and vulnerability discovery.
 
+You can find the paper via this [link](), and please consider citing our paper if it's helpful to you.
+```
+@inproceedings{yang2026trichord, 
+  title = {TriChord: Extension-Oriented Browser Fuzzing for Chromium}, 
+  author = {Yang, Huinian and Wu, Daoyuan and Li, Qingyu and Liu, Yiming}, 
+  booktitle = {Proc. ACM SIGSAC Conference on Computer and Communications Security (CCS)}, 
+  year = {2026}
+ }
+```
+
+
 ## Features
 
 - **Grammar-based Generation**: Uses Domato context-free grammar rules to generate syntactically correct code
